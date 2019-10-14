@@ -43,7 +43,7 @@ void set3DViewingInformation(double overallBB[])
 
 int main(int argc, char* argv[])
 {
-	ExtendedController c("GIVE ME A NICE TITLE", MVC_USE_DEPTH_BIT);
+	ExtendedController c("Feel the Snow Tribute", MVC_USE_DEPTH_BIT);
 	c.reportVersions(std::cout);
 
 	ShaderIF* sIF = new ShaderIF("shaders/basic.vsh", "shaders/phong.fsh");
