@@ -35,9 +35,9 @@ main: $(OBJS) $(LOCAL_UTIL_LIBRARIES)
 ../lib/libmvc.so: ../mvcutil/Controller.h ../mvcutil/Controller.c++ ../mvcutil/ModelView.h ../mvcutil/ModelView.c++
 	(cd ../mvcutil; $(MAKE))
 
-main.o: main.c++
-	$(CPP) $(C_FLAGS) main.c++
-ExtendedController.o: ExtendedController.c++
-	$(CPP) $(C_FLAGS) ExtendedController.c++
-TEMPLATE_Subclass.o: TEMPLATE_Subclass.h TEMPLATE_Subclass.c++
-	$(CPP) $(C_FLAGS) TEMPLATE_Subclass.c++
+main.o: main.cpp
+	$(CPP) $(C_FLAGS) main.cpp
+ExtendedController.o: ExtendedController.cpp
+	$(CPP) $(C_FLAGS) ExtendedController.cpp
+TEMPLATE_Subclass.o: TEMPLATE_Subclass.h TEMPLATE_Subclass.cpp
+	$(CPP) $(C_FLAGS) TEMPLATE_Subclass.cpp
