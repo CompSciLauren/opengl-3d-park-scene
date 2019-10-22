@@ -11,7 +11,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 void set3DViewingInformation(double overallBB[])
 {
-	// Be able to see entire screen initially (viewing strategy #1)
+	// be able to see entire screen initially (viewing strategy #1)
 	ModelView::setMCRegionOfInterest(overallBB);
 
 	// MC -> EC:
@@ -26,12 +26,12 @@ void set3DViewingInformation(double overallBB[])
 	double midY = (maxY + minY) / 2;
 	double midZ = (maxZ + minZ) / 2;
 
-	// Calculate radius for x, y, and z
+	// calculate radius for x, y, and z
 	double xRadius = (maxX - minX) / 2;
 	double yRadius = (maxY - minY) / 2;
 	double zRadius = (maxZ - minZ) / 2;
 
-	// Set radius to be x or y or z (whichever value is greatest)
+	// set radius to be x or y or z (whichever value is greatest)
 	double radius = xRadius;
 	if (yRadius > radius)
 	{
@@ -42,24 +42,27 @@ void set3DViewingInformation(double overallBB[])
 		radius = zRadius;
 	}
 
-	// TODO: Compute/set eye, center, up
-	cryph::AffPoint eye;
+	// compute/set eye, center, up
+	double distance = 3.5 * radius;
+	cryph::AffVector directionFromCenterToEye = cryph::AffVector(0, 0, 1);
 	cryph::AffPoint center(midX, midY, midZ);
-	cryph::AffVector up;
+	cryph::AffPoint eye = center + (distance * directionFromCenterToEye);
+	cryph::AffVector up = cryph::AffVector(1, 0, 0);
 	ModelView::setEyeCenterUp(eye, center, up);
 
 	// EC -> LDS:
 
-	// Specify the initial projection type desired
+	// specify the initial projection type desired
 	ModelView::setProjection(PERSPECTIVE);
 
-	// TODO: Compute/set ecZmin, ecZmax (It is often useful to exaggerate
-	//       these limits somewhat to prevent unwanted depth clipping.)
-	double ecZmin, ecZmax;
+	// compute/set ecZmin, ecZmax (it is often useful to exaggerate
+	// these limits somewhat to prevent unwanted depth clipping)
+	double ecZmin = -distance - radius;
+	double ecZmax = -distance + radius;
 	ModelView::setECZminZmax(ecZmin, ecZmax);
 
-	// TODO: Compute/set ecZpp
-	double ecZpp;
+	// compute/set ecZpp
+	double ecZpp = ecZmax;
 	ModelView::setProjectionPlaneZ(ecZpp);
 }
 
