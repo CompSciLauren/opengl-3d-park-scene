@@ -42,6 +42,11 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 	vec3* normals = new vec3[nPoints];
 	double theta = 0.0;
 	double dTheta = 2.0*M_PI/N_POINTS_AROUND_SLICE;
+	x1 = 10;
+	x2 = 20;
+	yb = 5;
+	zb = 5;
+	r = 5;
 	// ************************************************************************
 	// EXERCISE: In the for-loop that follows, define the coordinates and
 	//           normals for a GL_TRIANGLE_STRIP that approximates a cylinder
@@ -56,7 +61,22 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 		// (and common) normal vectors
 
 		// Refer to 672's InClass/3DModeling/3DGeometryAndAttributeModeling101.html
-
+		double ny = r * cos(theta);
+		double nz = r * sin(theta);
+		coords[i][0] = x1;
+		coords[i][1] = ny;
+		coords[i][2] = nz;
+		normals[i][0] = 0;
+		normals[i][1] = ny;
+		normals[i][2] = nz;
+		coords[i+1][0] = x2;
+		coords[i+1][1] = ny;
+		coords[i+1][2] = nz;
+		normals[i+1][0] = 0;
+		normals[i+1][1] = ny;
+		normals[i+1][2] = nz;
+        // ny and nz also specify the normal vector along this ruling:
+        //vboNormals[i] = vboNormals[i+1] = (0, ny, nz)
 		theta += dTheta;
 	}
 
@@ -65,6 +85,15 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 	//           Also use glVertexAttribPointer and glEnableVertexAttribArray
 	// ************************************************************************
 	std::cout << "Cylinder::defineCylinder: create/fill VBOs. You will see errors until you do so.\n";
+
+	glGenVertexArrays(1, vao);
+	glGenBuffers(2, vbo);
+
+	glBindVertexArray(vao[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+
+	glVertexAttribPointer(shaderIF->pvaLoc("mcPosition"), 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(shaderIF->pvaLoc("mcPosition"));
 
 	delete [] coords;
 	delete [] normals;
