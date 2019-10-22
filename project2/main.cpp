@@ -1,6 +1,7 @@
 // main.c++: Starter for EECS 672 Projects 2-4
 
 #include "ExtendedController.h"
+#include "Cylinder.h"
 #include "TEMPLATE_Subclass.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
