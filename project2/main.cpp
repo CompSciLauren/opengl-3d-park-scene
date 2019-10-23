@@ -7,21 +7,12 @@
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
-	// grass color
+	// grass
 	double grassColor[] = {0, 92, 9};
-
-	// grass size
 	double grassSize[] = {0.001, 0.3, 0.3};
-	// add grass
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
-	// seat color
-	double benchColor[] = {128, 64, 0};
-
-	// legs color
-	double legsColor[] = {101, 67, 33};
-
-	// bench size
+	// bench
 	double seatSize[] = {0.003, 0.009, 0.021};
 
 	// lower-right leg position
@@ -36,7 +27,11 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// upper-left leg position
 	double backLeftLegPos[] = {0.227, 1.469}; // yPos, zPos
 
+	// legs color
+	double legsColor[] = {101, 67, 33};
+
 	// add bench
+	double benchColor[] = {128, 64, 0};
 	c.addModel(new Bench(sIF, 0.2, 0.205,
 	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
 	0.035, 0.205,
