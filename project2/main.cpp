@@ -24,9 +24,21 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// bench size
 	double seatSize[] = {0.003, 0.009, 0.021};
 
+	// lower-right leg position
+	double frontRightLegPos[] = {0.222, 1.452}; // yPos, zPos
+
+	// lower-left leg position
+	double frontLeftLegPos[] = {0.222, 1.452}; // yPos, zPos
+
+	// upper-right leg position
+	double backRightLegPos[] = {0.222, 1.452}; // yPos, zPos
+
+	// upper-left leg position
+	double backLeftLegPos[] = {0.222, 1.452}; // yPos, zPos
+
 	// add bench
 	c.addModel(new Bench(sIF,
-	0.222, 1.452, // position of bottom-right leg
+	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
 	0.035, 0.205,
 	0.22, 1.45, // position of seat
 	seatSize,

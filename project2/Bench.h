@@ -11,8 +11,8 @@
 class Bench : public ModelView
 {
 public:
-	Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
-	double blX, double blockPosAlongY, double blZ, double benchSize[], double blockColor[], double benchColor[]);
+	Bench(ShaderIF* sIF, double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
+	double radius, double blX, double blockPosAlongY, double blZ, double benchSize[], double blockColor[], double benchColor[]);
 	virtual ~Bench();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}

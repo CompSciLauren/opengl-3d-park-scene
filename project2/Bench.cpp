@@ -2,20 +2,20 @@
 
 #include "Bench.h"
 
-Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
-double blX, double blockPosAlongY, double blZ, double benchSize[],
+Bench::Bench(ShaderIF* sIF, double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
+double radius, double blX, double blockPosAlongY, double blZ, double benchSize[],
 double blockColor[], double legsColor[]) : shaderIF(sIF)
 {
 	double x1 = 0.2;
 	double x2 = 0.25;
 	xmin = x1;
 	xmax = x2;
-	ymin = positionAlongY - radius;
-	ymax = positionAlongY + radius;
-	zmin = positionAlongZ - radius;
-	zmax = positionAlongZ + radius;
+	ymin = frontRightLegPos[0] - radius;
+	ymax = frontRightLegPos[0] + radius;
+	zmin = frontRightLegPos[1] - radius;
+	zmax = frontRightLegPos[1] + radius;
 
-	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, legsColor);
+	cylinder = new Cylinder(sIF, frontRightLegPos[0], frontRightLegPos[1], radius, legsColor);
 	block = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
 }
 
