@@ -4,7 +4,7 @@
 
 Tree::Tree(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
 double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3,
-double r, double g, double b, double treeTrunkColor[]) : shaderIF(sIF)
+double blockColor[], double treeTrunkColor[]) : shaderIF(sIF)
 {
 	double x1 = 0.2;
 	double x2 = 0.25;
@@ -16,7 +16,7 @@ double r, double g, double b, double treeTrunkColor[]) : shaderIF(sIF)
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, treeTrunkColor);
-	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3, r, g, b);
+	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3, blockColor);
 }
 
 Tree::~Tree()
