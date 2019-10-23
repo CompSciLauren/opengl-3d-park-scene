@@ -13,32 +13,38 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
 	// bench
-	double seatPos[] = {0.22, 1.45};
-	double seatSize[] = {0.003, 0.009, 0.021};
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
-	// lower-right leg position
-	double frontRightLegPos[] = {seatPos[0] + 0.002, seatPos[1] + 0.002}; // yPos, zPos
+	// bench position along Y axis
+	double seatPosAlongY[] = {0.22, 0.24};
 
-	// lower-left leg position
-	double frontLeftLegPos[] = {seatPos[0] + 0.002, seatPos[1] + 0.019}; // yPos, zPos
+	// bench position along Z axis
+	double seatPosAlongZ[] = {1.45, 1.50};
 
-	// upper-right leg position
-	double backRightLegPos[] = {seatPos[0] + 0.007, seatPos[1] + 0.002}; // yPos, zPos
-
-	// upper-left leg position
-	double backLeftLegPos[] = {seatPos[0] + 0.007, seatPos[1] + 0.019}; // yPos, zPos
+	// bench color
+	double benchColor[] = {128, 64, 0};
 
 	// legs color
 	double legsColor[] = {101, 67, 33};
 
-	// add bench
-	double benchColor[] = {128, 64, 0};
-	c.addModel(new Bench(sIF, 0.2, 0.205,
-	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
-	0.035, 0.205,
-	seatPos, seatSize, backRestSize,
-	benchColor, legsColor));
+	// add benches
+	double seatSize[] = {0.003, 0.009, 0.021};
+	for (int i = 0; i < 2; i++)
+	{
+		// bench seat position (X and Y combined)
+		double seatPos[i] = {seatPosAlongY[i], seatPosAlongZ[i]};
+
+		double frontRightLegPos[] = {seatPosAlongY[i] + 0.002, seatPosAlongZ[i] + 0.002}; // yPos, zPos
+		double frontLeftLegPos[] = {seatPosAlongY[i] + 0.002, seatPosAlongZ[i] + 0.019}; // yPos, zPos
+		double backRightLegPos[] = {seatPosAlongY[i] + 0.007, seatPosAlongZ[i] + 0.002}; // yPos, zPos
+		double backLeftLegPos[] = {seatPosAlongY[i] + 0.007, seatPosAlongZ[i] + 0.019}; // yPos, zPos
+
+		c.addModel(new Bench(sIF, 0.2, 0.205,
+		frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
+		0.035, 0.205,
+		seatPos, seatSize, backRestSize,
+		benchColor, legsColor));
+	}
 
 	// tree position along Y axis
 	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};
