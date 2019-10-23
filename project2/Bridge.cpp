@@ -3,8 +3,8 @@
 #include "Bridge.h"
 
 Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-double blX, double blockPosAlongY, double blZ, double leavesSize[],
-double blockColor[], double bridgeBaseColor[]) : shaderIF(sIF)
+double blX, double blockPosAlongY, double blZ, double bridgeBaseSize[],
+double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 {
 	ymin = positionAlongY - radius;
 	ymax = positionAlongY + radius;
@@ -12,7 +12,7 @@ double blockColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, bridgeBaseColor);
-	block = new Block(sIF, blX, blockPosAlongY, blZ, leavesSize, blockColor);
+	bridgeBase = new Block(sIF, blX, blockPosAlongY, blZ, bridgeBaseSize, bridgeBaseColor);
 }
 
 Bridge::~Bridge()
@@ -55,5 +55,5 @@ void Bridge::render()
 void Bridge::renderBridge() const
 {
 	cylinder->render();
-	block->render();
+	bridgeBase->render();
 }

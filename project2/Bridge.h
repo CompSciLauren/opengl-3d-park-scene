@@ -12,8 +12,8 @@ class Bridge : public ModelView
 {
 public:
 	Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-	double blX, double blockPosAlongY, double blZ, double leavesSize[],
-	double blockColor[], double bridgeBaseColor[]);
+	double blX, double blockPosAlongY, double blZ, double bridgeBaseSize[],
+	double cornerPostColor[], double bridgeBaseColor[]);
 	virtual ~Bridge();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
@@ -29,7 +29,7 @@ private:
 	double xb, yb, rBridgeTop, rTrunk, height;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Cylinder* cylinder;
-	Block* block;
+	Block* bridgeBase;
 };
 
 #endif

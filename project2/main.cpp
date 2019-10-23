@@ -73,14 +73,15 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 
 void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 {
+	double baseSize[] = {0.003, 0.05, 0.023};
 	double cornerPostSize[] = {0.022, 0.022, 0.022};
 	double bridgeBaseColor[] = {128, 64, 0};
 	double cornerPostColor[] = {101, 67, 33};
-	c.addModel(new Bridge(sIF, 0.2, 0.22,
+	c.addModel(new Bridge(sIF, 0.2, 0.205,
 	0.2, 1.46,
-	0.05, 0.23,
+	0.05, 0.2,
 	0.2 - 0.009, 1.46 - 0.01,
-	cornerPostSize,
+	baseSize,
 	cornerPostColor, bridgeBaseColor));
 }
 
