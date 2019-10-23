@@ -15,7 +15,7 @@
 class Cylinder : public ModelView
 {
 public:
-	Cylinder(ShaderIF* sIF, double yb, double zb, double r);
+	Cylinder(ShaderIF* sIF, double yb, double zb, double r, double rTrunk, double gTrunk, double bTrunk);
 	virtual ~Cylinder();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}

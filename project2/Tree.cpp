@@ -4,7 +4,7 @@
 
 Tree::Tree(ShaderIF* sIF, double x, double y, double z,
 double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3,
-double r, double g, double b) : shaderIF(sIF)
+double r, double g, double b, double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF)
 {
 	double x1 = 0.2, x2 = 0.25;
 	xmin = x1;
@@ -14,7 +14,7 @@ double r, double g, double b) : shaderIF(sIF)
 	zmin = y - z;
 	zmax = y + z;
 
-	cylinder = new Cylinder(sIF, x, y, z);
+	cylinder = new Cylinder(sIF, x, y, z, rTrunk, gTrunk, bTrunk);
 	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3, r, g, b);
 }
 

@@ -7,9 +7,8 @@
 
 // This simple Cylinder class creates a cylinder along the x-axis:
 // (x1, yb, zb) to (x2, yb, zb) with radius = r
-Cylinder::Cylinder(ShaderIF* sIF, double yb, double zb, double r) : shaderIF(sIF)
+Cylinder::Cylinder(ShaderIF* sIF, double yb, double zb, double r, double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF) 
 {
-	kd[0] = 0.25; kd[1] = 1.0; kd[2] = 0.5;
 	double x1 = 0.2, x2 = 0.25;
 	xmin = x1;
 	xmax = x2;
@@ -17,6 +16,10 @@ Cylinder::Cylinder(ShaderIF* sIF, double yb, double zb, double r) : shaderIF(sIF
 	ymax = yb + r;
 	zmin = zb - r;
 	zmax = zb + r;
+
+	kd[0] = rTrunk/255;
+	kd[1] = gTrunk/255;
+	kd[2] = bTrunk/255;
 	defineCylinder(x1, x2, yb, zb, r);
 }
 
