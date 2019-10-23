@@ -6,13 +6,14 @@
 #include "ModelView.h"
 #include "ShaderIF.h"
 #include "Cylinder.h"
+#include "Block.h"
 
 class Tree : public ModelView
 {
 public:
 	// Tree(ShaderIF* sIF, double xbIn, double ybIn, double rTreeTopIn, double rTrunkIn,
 	// double heightIn, int numTreeTopPointsIn=30, int numTrunkPointsIn=25);
-	Tree(ShaderIF* sIF, double x, double y, double z);
+	Tree(ShaderIF* sIF, double x, double y, double z, double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3);
 	virtual ~Tree();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
@@ -29,6 +30,7 @@ private:
 	int numTreeTopPoints, numTrunkPoints;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Cylinder* cylinder;
+	Block* block;
 };
 
 #endif

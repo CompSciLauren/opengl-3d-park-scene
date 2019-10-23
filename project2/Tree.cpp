@@ -2,11 +2,8 @@
 
 #include "Tree.h"
 
-// Tree::Tree(ShaderIF* sIF, double xbIn, double ybIn, double rTreeTopIn, double rTrunkIn,
-// double heightIn, int numTreeTopPointsIn, int numTrunkPointsIn) : shaderIF(sIF),
-// xb(xbIn), yb(ybIn), rTreeTop(rTreeTopIn), rTrunk(rTrunkIn), height(heightIn),
-// numTreeTopPoints(numTreeTopPointsIn), numTrunkPoints(numTreeTopPointsIn)
-Tree::Tree(ShaderIF* sIF, double x, double y, double z) : shaderIF(sIF)
+Tree::Tree(ShaderIF* sIF, double x, double y, double z,
+double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3) : shaderIF(sIF)
 {
 	double x1 = 0.2, x2 = 0.25;
 	xmin = x1;
@@ -17,6 +14,7 @@ Tree::Tree(ShaderIF* sIF, double x, double y, double z) : shaderIF(sIF)
 	zmax = y + z;
 
 	cylinder = new Cylinder(sIF, x, y, z);
+	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3);
 }
 
 Tree::~Tree()
@@ -62,7 +60,7 @@ void Tree::renderTree() const
 	//    instance variables
 	// ...
 	cylinder->render();
-
+	block->render();
 	// glBindVertexArray(vao[0]);
 	// // draw trunk first because treetop overwrites it
 	// glUniform4i(shaderIF->ppuLoc("treePart"), 0); // '0' means trunk
