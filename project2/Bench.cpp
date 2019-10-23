@@ -2,7 +2,9 @@
 
 #include "Bench.h"
 
-Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius, double benchColor[]) : shaderIF(sIF)
+Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
+double blX, double blockPosAlongY, double blZ, double blSize1, double blSize2, double blSize3,
+double blockColor[], double benchColor[]) : shaderIF(sIF)
 {
 	double x1 = 0.2;
 	double x2 = 0.25;
@@ -14,6 +16,7 @@ Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, benchColor);
+	block = new Block(sIF, blX, blockPosAlongY, blZ, blSize1, blSize2, blSize3, blockColor);
 }
 
 Bench::~Bench()
@@ -56,4 +59,5 @@ void Bench::render()
 void Bench::renderBench() const
 {
 	cylinder->render();
+	block->render();
 }
