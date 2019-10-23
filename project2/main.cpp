@@ -2,12 +2,14 @@
 
 #include "ExtendedController.h"
 #include "Tree.h"
+#include "Ball.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
 	c.addModel(new Tree(sIF, 0, 1.4, 0.05));
-	c.addModel(new Tree(sIF, 0.05, 1.4, 0.05));
-	c.addModel(new Tree(sIF, 0.10, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05));
+	c.addModel(new Ball(sIF, 0.10, 1.4, 0.07));
 }
 
 void set3DViewingInformation(double overallBB[])
