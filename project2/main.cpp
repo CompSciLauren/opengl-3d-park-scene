@@ -5,9 +5,10 @@
 #include "Tree.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
-{
-	c.addModel(new Tree(sIF));
-	c.addModel(new Tree(sIF));
+{	
+	c.addModel(new Tree(sIF, 0.2, 0.25, 0, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.2, 0.25, 0.05, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.2, 0.25, 0.10, 1.4, 0.05));
 }
 
 void set3DViewingInformation(double overallBB[])
