@@ -2,12 +2,12 @@
 
 #include "ExtendedController.h"
 #include "Cylinder.h"
-#include "TEMPLATE_Subclass.h"
+#include "Tree.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {
-	// TODO: Implement this function
-	c.addModel(new Cylinder(sIF));
+	c.addModel(new Tree(sIF));
+	c.addModel(new Tree(sIF));
 }
 
 void set3DViewingInformation(double overallBB[])
