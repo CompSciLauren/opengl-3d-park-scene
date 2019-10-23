@@ -71,6 +71,19 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 	}
 }
 
+void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
+{
+	double cornerPostSize[] = {0.022, 0.022, 0.022};
+	double bridgeBaseColor[] = {128, 64, 0};
+	double cornerPostColor[] = {101, 67, 33};
+	c.addModel(new Bridge(sIF, 0.2, 0.22,
+	0.2, 1.46,
+	0.05, 0.23,
+	0.2 - 0.009, 1.46 - 0.01,
+	cornerPostSize,
+	cornerPostColor, bridgeBaseColor));
+}
+
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
 	// grass
@@ -83,20 +96,10 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double dirtSize[] = {0.01, 0.3, 0.3};
 	c.addModel(new Block(sIF, 0.19, -0.009, 1.29, dirtSize, dirtColor));
 
-	// benches and trees
+	// add benches, trees, and bridges
 	createBenchesForScene(c, sIF);
 	createTreesForScene(c, sIF);
-
-	// add bridge
-	double cornerPostSize[] = {0.022, 0.022, 0.022};
-	double bridgeBaseColor[] = {128, 64, 0};
-	double cornerPostColor[] = {101, 67, 33};
-	c.addModel(new Bridge(sIF, 0.2, 0.22,
-	0.09, 1.56,
-	0.05, 0.23,
-	0.09 - 0.009, 1.56 - 0.01,
-	cornerPostSize,
-	cornerPostColor, bridgeBaseColor));
+	createBridgesForScene(c, sIF);
 }
 
 void set3DViewingInformation(double overallBB[])
