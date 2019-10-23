@@ -42,25 +42,11 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 	vec3* normals = new vec3[nPoints];
 	double theta = 0.0;
 	double dTheta = 2.0*M_PI/N_POINTS_AROUND_SLICE;
-	x1 = 10;
-	x2 = 20;
-	yb = 5;
-	zb = 5;
-	r = 5;
-	// ************************************************************************
-	// EXERCISE: In the for-loop that follows, define the coordinates and
-	//           normals for a GL_TRIANGLE_STRIP that approximates a cylinder
-	//           in one of the following ways:
-	//           1. Along one of the x-, y-, or z-axes
-	//           2. Along an axis parallel to one of the x-, y-, or z-axes
-	//           3. In general position and orientation using the cryph utilities.
-	// ************************************************************************
+
+	// define coords and normals for a GL_TRIANGLE_STRIP that approximates a cylinder
 	for (int i=0 ; i<=N_POINTS_AROUND_SLICE ; i++)
 	{
-		// Each time through this loop, create two points and their corresponding
-		// (and common) normal vectors
-
-		// Refer to 672's InClass/3DModeling/3DGeometryAndAttributeModeling101.html
+		// create two points and their corresponding (and common) normal vectors
 		double ny = r * cos(theta);
 		double nz = r * sin(theta);
 		coords[i][0] = x1;
