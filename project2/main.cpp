@@ -78,6 +78,11 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double grassSize[] = {0.001, 0.3, 0.3};
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
+	// dirt
+	double dirtColor[] = {101, 67, 33};
+	double dirtSize[] = {0.01, 0.3, 0.3};
+	c.addModel(new Block(sIF, 0.19, -0.009, 1.29, dirtSize, dirtColor));
+
 	// benches and trees
 	createBenchesForScene(c, sIF);
 	createTreesForScene(c, sIF);
