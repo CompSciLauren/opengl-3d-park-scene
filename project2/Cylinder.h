@@ -16,7 +16,7 @@ class Cylinder : public ModelView
 {
 public:
 	Cylinder(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
-	double rTrunk, double gTrunk, double bTrunk);
+	double treeTrunkColor[]);
 	virtual ~Cylinder();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}

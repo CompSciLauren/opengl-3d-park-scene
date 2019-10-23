@@ -8,7 +8,7 @@
 // This simple Cylinder class creates a cylinder along the x-axis:
 // (x1, yb, zb) to (x2, yb, zb) with radius = r
 Cylinder::Cylinder(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
-double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF) 
+double treeTrunkColor[]) : shaderIF(sIF) 
 {
 	double x1 = 0.2;
 	double x2 = 0.25;
@@ -19,9 +19,9 @@ double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF)
 	zmin = positionAlongZ - radius;
 	zmax = positionAlongZ + radius;
 
-	kd[0] = rTrunk/255;
-	kd[1] = gTrunk/255;
-	kd[2] = bTrunk/255;
+	kd[0] = treeTrunkColor[0]/255;
+	kd[1] = treeTrunkColor[1]/255;
+	kd[2] = treeTrunkColor[2]/255;
 	defineCylinder(x1, x2, positionAlongY, positionAlongZ, radius);
 }
 

@@ -8,9 +8,10 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.001, 0.3, 0.3, 0, 92, 9));
 
-	c.addModel(new Tree(sIF, 0, 1.4, 0.05, 0.23, -0.009, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, 165, 100, 6));
-	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05, 0.23, 0.019, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, 165, 100, 6));
-	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05, 0.23, 0.049, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, 165, 100, 6));
+	double treeTrunkColor[] = {165, 100, 6};
+	c.addModel(new Tree(sIF, 0, 1.4, 0.05, 0.23, -0.009, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, treeTrunkColor));
+	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05, 0.23, 0.019, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, treeTrunkColor));
+	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05, 0.23, 0.049, 1.39, 0.022, 0.022, 0.022, 77, 168, 59, treeTrunkColor));
 }
 
 void set3DViewingInformation(double overallBB[])
