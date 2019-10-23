@@ -5,21 +5,28 @@
 
 #include "ModelView.h"
 #include "ShaderIF.h"
+#include "Cylinder.h"
 
 class Bench : public ModelView
 {
 public:
-	// As before: you will likely want to add parameters to the constructor
-	Bench(ShaderIF* sIF);
+	Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius, double benchColor[]);
 	virtual ~Bench();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
 	void getMCBoundingBox(double* xyzLimitsF) const;
 	void render();
-	void renderXxx();
+	void renderBench() const;
 private:
 	ShaderIF* shaderIF;
+	GLuint vao[1];
+	GLuint vbo[1]; // stores both trunk and Benchtop points
+	int numTrunkTriStripPoints;
 	float ka[3], kd[3];
+	double xb, yb, rBenchTop, rTrunk, height;
+	int numBenchTopPoints, numTrunkPoints;
+	double xmin, xmax, ymin, ymax, zmin, zmax;
+	Cylinder* cylinder;
 };
 
 #endif

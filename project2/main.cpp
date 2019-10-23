@@ -1,6 +1,7 @@
 // main.c++: Starter for EECS 672 Projects 2-4
 
 #include "ExtendedController.h"
+#include "Bench.h"
 #include "Tree.h"
 #include "Block.h"
 
@@ -11,6 +12,12 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	// add grass
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.001, 0.3, 0.3, grassColor));
+
+	// bench color
+	double benchColor[] = {160, 90, 15};
+
+	// add bench
+	c.addModel(new Bench(sIF, 0.22, 1.45, 0.05, benchColor));
 
 	// tree position along Y axis
 	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};

@@ -2,48 +2,58 @@
 
 #include "Bench.h"
 
-Bench::Bench(ShaderIF* sIF) : shaderIF(sIF)
+Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius, double benchColor[]) : shaderIF(sIF)
 {
-	// DON'T FORGET TO SET INSTANCE VARIABLES, PERHAPS USING
-	// SOME CONSTRUCTOR PARAMETERS
+	double x1 = 0.2;
+	double x2 = 0.25;
+	xmin = x1;
+	xmax = x2;
+	ymin = positionAlongY - radius;
+	ymax = positionAlongY + radius;
+	zmin = positionAlongZ - radius;
+	zmax = positionAlongZ + radius;
+
+	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, benchColor);
 }
 
 Bench::~Bench()
 {
+	glDeleteBuffers(1, vbo);
+	glDeleteVertexArrays(1, vao);
 }
 
 // xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
 void Bench::getMCBoundingBox(double* xyzLimits) const
 {
-	xyzLimits[0] = -1000.0; // xmin  Give real values!
-	xyzLimits[1] = 1000.0;  // xmax         |
-	xyzLimits[2] = -1234.5; // ymin         |
-	xyzLimits[3] = -1011.2; // ymax         |
-	xyzLimits[4] = -3000.0; // zmin         |
-	xyzLimits[5] = -2000.0; // zmax        \_/
+	xyzLimits[0] = xmin;
+	xyzLimits[1] = xmax;
+	xyzLimits[2] = ymin;
+	xyzLimits[3] = ymax;
+	xyzLimits[4] = zmin;
+	xyzLimits[5] = zmax;
 }
 
 void Bench::render()
 {
-	// 1. Save current and establish new current shader program
-	// ...
+	// save current and establish new current shader program
+	GLint pgm;
+	glGetIntegerv(GL_CURRENT_PROGRAM, &pgm);
+	// draw the triangles using our vertex and fragment shaders
+	glUseProgram(shaderIF->getShaderPgmID());
 
-	// 2. Establish "mc_ec" and "ec_lds" matrices
-	// ...
+	// establish "mc_ec" and "ec_lds" matrices
+	cryph::Matrix4x4 mc_ec, ec_lds;
+	getMatrices(mc_ec, ec_lds);
+	float m[16];
+	glUniformMatrix4fv(shaderIF->ppuLoc("mc_ec"), 1, false, mc_ec.extractColMajor(m));
+	glUniformMatrix4fv(shaderIF->ppuLoc("ec_lds"), 1, false, mc_ec.extractColMajor(m));
+	renderBench();
 
-	renderXxx();
-
-	// 5. Reestablish previous shader program
-	// ...
+	// reestablish previous shader program
+	glUseProgram(pgm);
 }
 
-void Bench::renderXxx()
+void Bench::renderBench() const
 {
-	// 3. Set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
-	//    instance variables
-	// ...
-
-	// 4. Establish any other attributes and make one or more calls to
-	//    glDrawArrays and/or glDrawElements
-	// ...
+	cylinder->render();
 }
