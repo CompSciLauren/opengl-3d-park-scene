@@ -2,7 +2,7 @@
 
 #include "Tree.h"
 
-Tree::Tree(ShaderIF* sIF, double x, double y, double radius,
+Tree::Tree(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
 double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3,
 double r, double g, double b, double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF)
 {
@@ -10,12 +10,12 @@ double r, double g, double b, double rTrunk, double gTrunk, double bTrunk) : sha
 	double x2 = 0.25;
 	xmin = x1;
 	xmax = x2;
-	ymin = x - radius;
-	ymax = x + radius;
-	zmin = y - radius;
-	zmax = y + radius;
+	ymin = positionAlongY - radius;
+	ymax = positionAlongY + radius;
+	zmin = positionAlongZ - radius;
+	zmax = positionAlongZ + radius;
 
-	cylinder = new Cylinder(sIF, x, y, radius, rTrunk, gTrunk, bTrunk);
+	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, rTrunk, gTrunk, bTrunk);
 	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3, r, g, b);
 }
 
