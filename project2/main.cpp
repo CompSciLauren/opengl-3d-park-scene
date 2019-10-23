@@ -14,11 +14,9 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	// tree position along Y axis
 	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.05};
-	double treeLeavesPosAlongY[] = {treeTrunksPosAlongY[0] - 0.009, treeTrunksPosAlongY[1] - 0.009, treeTrunksPosAlongY[2] - 0.009, treeTrunksPosAlongY[3] - 0.009};
 
 	// tree position along Z axis
 	double treeTrunksPosAlongZ[] = {1.56, 1.4, 1.34, 1.53};
-	double treeLeavesPosAlongZ[] = {treeTrunksPosAlongZ[0] - 0.01, treeTrunksPosAlongZ[1] - 0.01, treeTrunksPosAlongZ[2] - 0.01, treeTrunksPosAlongZ[3] - 0.01};
 
 	// tree colors
 	double treeTrunkColor[] = {165, 100, 6};
@@ -27,7 +25,15 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// add trees
 	for (int i = 0; i < 4; i++)
 	{
-		c.addModel(new Tree(sIF, treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], 0.05, 0.23, treeLeavesPosAlongY[i], treeLeavesPosAlongZ[i], 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
+		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
+		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
+
+		c.addModel(new Tree(sIF,
+		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
+		0.05, 0.23,
+		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
+		0.022, 0.022, 0.022,
+		treeLeafColor, treeTrunkColor)); // colors
 	}
 }
 
