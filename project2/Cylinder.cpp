@@ -75,26 +75,24 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 		normals[i+1][0] = 0;
 		normals[i+1][1] = ny;
 		normals[i+1][2] = nz;
-        // ny and nz also specify the normal vector along this ruling:
-        //vboNormals[i] = vboNormals[i+1] = (0, ny, nz)
 		theta += dTheta;
 	}
 
-	// ************************************************************************
-	// EXERCISE: Create/fill VAOs and VBOs here.
-	//           Also use glVertexAttribPointer and glEnableVertexAttribArray
-	// ************************************************************************
-	std::cout << "Cylinder::defineCylinder: create/fill VBOs. You will see errors until you do so.\n";
-
 	glGenVertexArrays(1, vao);
+	glBindVertexArray(vao[0]);
 	glGenBuffers(2, vbo);
 
-	glBindVertexArray(vao[0]);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+	glBufferData(GL_ARRAY_BUFFER, nPoints * sizeof(vec3), coords, GL_STATIC_DRAW);
 
-	glVertexAttribPointer(shaderIF->pvaLoc("mcPosition"), 2, GL_FLOAT, GL_FALSE, 0, 0);
+	glVertexAttribPointer(shaderIF->pvaLoc("mcPosition"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(shaderIF->pvaLoc("mcPosition"));
 
+	glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
+	glBufferData(GL_ARRAY_BUFFER, nPoints * sizeof(vec3), normals, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(shaderIF->pvaLoc("mcNormal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
+	glEnableVertexAttribArray(shaderIF->pvaLoc("mcNormal"));
 	delete [] coords;
 	delete [] normals;
 }

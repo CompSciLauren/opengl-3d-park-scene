@@ -7,6 +7,7 @@
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {
 	// TODO: Implement this function
+	c.addModel(new Cylinder(sIF));
 }
 
 void set3DViewingInformation(double overallBB[])
