@@ -38,6 +38,7 @@ void Ball::defineBall(double x1, double x2, double yb, double zb, double r)
 	double dTheta = 2.0*M_PI/N_POINTS_AROUND_SLICE;
 
 	// define coords and normals for a GL_TRIANGLE_STRIP that approximates a Ball
+	// (x - a)² + (y - b)² + (z - c)² = r²
 	for (int i=0 ; i<=N_POINTS_AROUND_SLICE ; i++)
 	{
 		// create two points and their corresponding (and common) normal vectors
