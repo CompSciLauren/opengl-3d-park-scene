@@ -54,16 +54,6 @@ void Tree::render()
 
 void Tree::renderTree() const
 {
-	// set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
-	//    instance variables
-	// ...
 	cylinder->render();
 	block->render();
-	// glBindVertexArray(vao[0]);
-	// // draw trunk first because treetop overwrites it
-	// glUniform4i(shaderIF->ppuLoc("treePart"), 0); // '0' means trunk
-	// int numTrunkTriStripPoints = 2 * numTrunkPoints;
-	// // draw tree top
-	// glDrawArrays(GL_TRIANGLE_STRIP, 0, numTrunkTriStripPoints); // offset: 0
-	// glDrawArrays(GL_TRIANGLE_FAN, numTrunkTriStripPoints, numTreeTopPoints);
 }

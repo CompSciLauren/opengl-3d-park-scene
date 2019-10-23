@@ -11,8 +11,6 @@
 class Tree : public ModelView
 {
 public:
-	// Tree(ShaderIF* sIF, double xbIn, double ybIn, double rTreeTopIn, double rTrunkIn,
-	// double heightIn, int numTreeTopPointsIn=30, int numTrunkPointsIn=25);
 	Tree(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
 	double blX, double blockPosAlongY, double blZ, double leavesSize[],
 	double blockColor[], double treeTrunkColor[]);
