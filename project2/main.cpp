@@ -15,14 +15,22 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// add grass
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
-	// bench color
+	// seat color
 	double benchColor[] = {128, 64, 0};
 
+	// legs color
+	double legsColor[] = {101, 67, 33};
+
 	// bench size
-	double benchSize[] = {0.022, 0.022, 0.022};
+	double seatSize[] = {0.003, 0.009, 0.021};
 
 	// add bench
-	c.addModel(new Bench(sIF, 0.22, 1.45, 0.05, 0.23, 0.22 - 0.009, 1.45 - 0.01, benchSize, benchColor, benchColor));
+	c.addModel(new Bench(sIF,
+	0.222, 1.452, // position of bottom-right leg
+	0.035, 0.205,
+	0.22, 1.45, // position of seat
+	seatSize,
+	benchColor, legsColor));
 
 	// tree position along Y axis
 	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};

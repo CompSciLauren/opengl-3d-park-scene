@@ -4,7 +4,7 @@
 
 Bench::Bench(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
 double blX, double blockPosAlongY, double blZ, double benchSize[],
-double blockColor[], double benchColor[]) : shaderIF(sIF)
+double blockColor[], double legsColor[]) : shaderIF(sIF)
 {
 	double x1 = 0.2;
 	double x2 = 0.25;
@@ -15,7 +15,7 @@ double blockColor[], double benchColor[]) : shaderIF(sIF)
 	zmin = positionAlongZ - radius;
 	zmax = positionAlongZ + radius;
 
-	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, benchColor);
+	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, legsColor);
 	block = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
 }
 
