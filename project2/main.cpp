@@ -6,6 +6,34 @@
 #include "Block.h"
 #include "Bridge.h"
 
+void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
+{
+	// tree position along Y axis
+	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};
+
+	// tree position along Z axis
+	double treeTrunksPosAlongZ[] = {1.56, 1.4, 1.34, 1.53, 1.32, 1.37};
+
+	// tree colors
+	double treeTrunkColor[] = {165, 100, 6};
+	double treeLeafColor[] = {77, 168, 59};
+
+	// add trees
+	double leavesSize[] = {0.022, 0.022, 0.022};
+	for (int i = 0; i < 6; i++)
+	{
+		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
+		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
+
+		c.addModel(new Tree(sIF, 0.2, 0.23,
+		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
+		0.05, 0.23,
+		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
+		leavesSize, // size of leaves
+		treeLeafColor, treeTrunkColor)); // colors
+	}
+}
+
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
 	// grass
@@ -47,30 +75,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		benchColor, legsColor));
 	}
 
-	// tree position along Y axis
-	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};
-
-	// tree position along Z axis
-	double treeTrunksPosAlongZ[] = {1.56, 1.4, 1.34, 1.53, 1.32, 1.37};
-
-	// tree colors
-	double treeTrunkColor[] = {165, 100, 6};
-	double treeLeafColor[] = {77, 168, 59};
-
-	// add trees
-	double leavesSize[] = {0.022, 0.022, 0.022};
-	for (int i = 0; i < 6; i++)
-	{
-		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
-		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
-
-		c.addModel(new Tree(sIF, 0.2, 0.23,
-		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
-		0.05, 0.23,
-		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
-		leavesSize, // size of leaves
-		treeLeafColor, treeTrunkColor)); // colors
-	}
+	createTreesForScene(c, sIF);
 
 	// add bridge
 	double cornerPostSize[] = {0.022, 0.022, 0.022};
