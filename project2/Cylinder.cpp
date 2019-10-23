@@ -5,12 +5,8 @@
 
 #include "Cylinder.h"
 
-// *************************************************************************
-// EXERCISE: Modify the constructor prototype to accept information
-//           necessary to address the EXERCISE in Cylinder::defineCylinder.
-// *************************************************************************
 // This simple Cylinder class creates a cylinder along the x-axis:
-// (x1, yb, zb) to (x2, yb, zb) with radius=r
+// (x1, yb, zb) to (x2, yb, zb) with radius = r
 Cylinder::Cylinder(ShaderIF* sIF) : shaderIF(sIF)
 {
 	kd[0] = 0.25; kd[1] = 1.0; kd[2] = 0.5;
@@ -79,6 +75,7 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 
 	glVertexAttribPointer(shaderIF->pvaLoc("mcNormal"), 3, GL_FLOAT, GL_FALSE, 0, 0);
 	glEnableVertexAttribArray(shaderIF->pvaLoc("mcNormal"));
+
 	delete [] coords;
 	delete [] normals;
 }
@@ -96,7 +93,7 @@ void Cylinder::getMCBoundingBox(double* xyzLimits) const
 
 bool Cylinder::handleCommand(unsigned char anASCIIChar, double ldsX, double ldsY)
 {
-	// Cylinder does not look for events. Just hand off back to inherited handleCommand.
+	// cylinder does not look for events. Just hand off back to inherited handleCommand.
 	return this->ModelView::handleCommand(anASCIIChar, ldsX, ldsY);
 }
 
