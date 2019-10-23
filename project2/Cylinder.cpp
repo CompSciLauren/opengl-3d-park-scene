@@ -10,7 +10,7 @@
 Cylinder::Cylinder(ShaderIF* sIF) : shaderIF(sIF)
 {
 	kd[0] = 0.25; kd[1] = 1.0; kd[2] = 0.5;
-	double x1 = 0.6, x2 = 1.1;
+	double x1 = 0.2, x2 = 0.25;
 	double yb = -0.35, zb = 1.4;
 	double r = 0.05;
 	xmin = x1;
@@ -43,20 +43,24 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 	for (int i=0 ; i<=N_POINTS_AROUND_SLICE ; i++)
 	{
 		// create two points and their corresponding (and common) normal vectors
+		int j = 2 * i;
 		double ny = r * cos(theta);
 		double nz = r * sin(theta);
-		coords[i][0] = x1;
-		coords[i][1] = ny;
-		coords[i][2] = nz;
-		normals[i][0] = 0;
-		normals[i][1] = ny;
-		normals[i][2] = nz;
-		coords[i+1][0] = x2;
-		coords[i+1][1] = ny;
-		coords[i+1][2] = nz;
-		normals[i+1][0] = 0;
-		normals[i+1][1] = ny;
-		normals[i+1][2] = nz;
+		coords[j][0] = x1;
+		coords[j][1] = yb + r * ny;
+		coords[j][2] = zb + r * nz;
+
+		normals[j][0] = 0;
+		normals[j][1] = ny;
+		normals[j][2] = nz;
+		
+		coords[j+1][0] = x2;
+		coords[j+1][1] = yb + r * ny;
+		coords[j+1][2] = zb + r * nz;
+		
+		normals[j+1][0] = 0;
+		normals[j+1][1] = ny;
+		normals[j+1][2] = nz;
 		theta += dTheta;
 	}
 
@@ -93,7 +97,7 @@ void Cylinder::getMCBoundingBox(double* xyzLimits) const
 
 bool Cylinder::handleCommand(unsigned char anASCIIChar, double ldsX, double ldsY)
 {
-	// cylinder does not look for events. Just hand off back to inherited handleCommand.
+	// cylinder does not look for events. Just hand off back to inherited handleCommand
 	return this->ModelView::handleCommand(anASCIIChar, ldsX, ldsY);
 }
 
