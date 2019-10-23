@@ -13,17 +13,17 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.001, 0.3, 0.3, grassColor));
 
 	// tree position along Y axis
-	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.05};
+	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};
 
 	// tree position along Z axis
-	double treeTrunksPosAlongZ[] = {1.56, 1.4, 1.34, 1.53};
+	double treeTrunksPosAlongZ[] = {1.56, 1.4, 1.34, 1.53, 1.32, 1.37};
 
 	// tree colors
 	double treeTrunkColor[] = {165, 100, 6};
 	double treeLeafColor[] = {77, 168, 59};
 
 	// add trees
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
 		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
