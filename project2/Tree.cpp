@@ -2,48 +2,76 @@
 
 #include "Tree.h"
 
-Tree::Tree(ShaderIF* sIF) : shaderIF(sIF)
+// Tree::Tree(ShaderIF* sIF, double xbIn, double ybIn, double rTreeTopIn, double rTrunkIn,
+// double heightIn, int numTreeTopPointsIn, int numTrunkPointsIn) : shaderIF(sIF),
+// xb(xbIn), yb(ybIn), rTreeTop(rTreeTopIn), rTrunk(rTrunkIn), height(heightIn),
+// numTreeTopPoints(numTreeTopPointsIn), numTrunkPoints(numTreeTopPointsIn)
+Tree::Tree(ShaderIF* sIF, double x, double y, double z) : shaderIF(sIF)
 {
-	// DON'T FORGET TO SET INSTANCE VARIABLES, PERHAPS USING
-	// SOME CONSTRUCTOR PARAMETERS
+	double x1 = 0.2, x2 = 0.25;
+	xmin = x1;
+	xmax = x2;
+	ymin = x - z;
+	ymax = x + z;
+	zmin = y - z;
+	zmax = y + z;
+
+	cylinders[0] = new Cylinder(sIF, 0, 1.4, 0.05);
+	cylinders[1] = new Cylinder(sIF, 0.05, 1.4, 0.05);
+	cylinders[2] = new Cylinder(sIF, 0.10, 1.4, 0.05);
 }
 
 Tree::~Tree()
 {
+	glDeleteBuffers(1, vbo);
+	glDeleteVertexArrays(1, vao);
 }
 
 // xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
 void Tree::getMCBoundingBox(double* xyzLimits) const
 {
-	xyzLimits[0] = -1000.0; // xmin  Give real values!
-	xyzLimits[1] = 1000.0;  // xmax         |
-	xyzLimits[2] = -1234.5; // ymin         |
-	xyzLimits[3] = -1011.2; // ymax         |
-	xyzLimits[4] = -3000.0; // zmin         |
-	xyzLimits[5] = -2000.0; // zmax        \_/
+	xyzLimits[0] = xmin;
+	xyzLimits[1] = xmax;
+	xyzLimits[2] = ymin;
+	xyzLimits[3] = ymax;
+	xyzLimits[4] = zmin;
+	xyzLimits[5] = zmax;
 }
 
 void Tree::render()
 {
-	// 1. Save current and establish new current shader program
-	// ...
+	// save current and establish new current shader program
+	GLint pgm;
+	glGetIntegerv(GL_CURRENT_PROGRAM, &pgm);
+	// draw the triangles using our vertex and fragment shaders
+	glUseProgram(shaderIF->getShaderPgmID());
 
-	// 2. Establish "mc_ec" and "ec_lds" matrices
-	// ...
+	// establish "mc_ec" and "ec_lds" matrices
+	cryph::Matrix4x4 mc_ec, ec_lds;
+	getMatrices(mc_ec, ec_lds);
+	float m[16];
+	glUniformMatrix4fv(shaderIF->ppuLoc("mc_ec"), 1, false, mc_ec.extractColMajor(m));
+	glUniformMatrix4fv(shaderIF->ppuLoc("ec_lds"), 1, false, mc_ec.extractColMajor(m));
+	renderTree();
 
-	renderXxx();
-
-	// 5. Reestablish previous shader program
-	// ...
+	// reestablish previous shader program
+	glUseProgram(pgm);
 }
 
-void Tree::renderXxx()
+void Tree::renderTree() const
 {
-	// 3. Set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
+	// set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
 	//    instance variables
 	// ...
+	cylinders[0]->render();
+	cylinders[1]->render();
+	cylinders[2]->render();
 
-	// 4. Establish any other attributes and make one or more calls to
-	//    glDrawArrays and/or glDrawElements
-	// ...
+	// glBindVertexArray(vao[0]);
+	// // draw trunk first because treetop overwrites it
+	// glUniform4i(shaderIF->ppuLoc("treePart"), 0); // '0' means trunk
+	// int numTrunkTriStripPoints = 2 * numTrunkPoints;
+	// // draw tree top
+	// glDrawArrays(GL_TRIANGLE_STRIP, 0, numTrunkTriStripPoints); // offset: 0
+	// glDrawArrays(GL_TRIANGLE_FAN, numTrunkTriStripPoints, numTreeTopPoints);
 }
