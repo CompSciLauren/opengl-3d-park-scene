@@ -11,9 +11,11 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	double treeTrunkColor[] = {165, 100, 6};
 	double treeLeafColor[] = {77, 168, 59};
-	c.addModel(new Tree(sIF, 0, 1.4, 0.05, 0.23, -0.009, 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
-	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05, 0.23, 0.019, 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
-	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05, 0.23, 0.049, 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
+	double treeTrunksPosAlongY[] = {0, 0.03, 0.1};
+	double treeLeavesPosAlongY[] = {treeTrunksPosAlongY[0] - 0.009, treeTrunksPosAlongY[1] - 0.009, treeTrunksPosAlongY[2] - 0.009};
+	c.addModel(new Tree(sIF, treeTrunksPosAlongY[0], 1.4, 0.05, 0.23, treeLeavesPosAlongY[0], 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
+	c.addModel(new Tree(sIF, treeTrunksPosAlongY[1], 1.4, 0.05, 0.23, treeLeavesPosAlongY[1], 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
+	c.addModel(new Tree(sIF, treeTrunksPosAlongY[2], 1.4, 0.05, 0.23, treeLeavesPosAlongY[2], 1.39, 0.022, 0.022, 0.022, treeLeafColor, treeTrunkColor));
 }
 
 void set3DViewingInformation(double overallBB[])

@@ -15,7 +15,7 @@
 class Block : public ModelView
 {
 public:
-	Block(ShaderIF* sIF, float cx, float cy, float cz, // lower left corner
+	Block(ShaderIF* sIF, float cx, float blockPosAlongY, float cz, // lower left corner
 	      float lx, float ly, float lz, // lengths in 3 directions
 		  double blockColor[]); // color
 	virtual ~Block();
