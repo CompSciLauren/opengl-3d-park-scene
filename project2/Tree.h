@@ -28,7 +28,7 @@ private:
 	double xb, yb, rTreeTop, rTrunk, height;
 	int numTreeTopPoints, numTrunkPoints;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
-	Cylinder* cylinders[3];
+	Cylinder* cylinder;
 };
 
 #endif

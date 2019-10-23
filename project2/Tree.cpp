@@ -16,9 +16,7 @@ Tree::Tree(ShaderIF* sIF, double x, double y, double z) : shaderIF(sIF)
 	zmin = y - z;
 	zmax = y + z;
 
-	cylinders[0] = new Cylinder(sIF, 0, 1.4, 0.05);
-	cylinders[1] = new Cylinder(sIF, 0.05, 1.4, 0.05);
-	cylinders[2] = new Cylinder(sIF, 0.10, 1.4, 0.05);
+	cylinder = new Cylinder(sIF, x, y, z);
 }
 
 Tree::~Tree()
@@ -63,9 +61,7 @@ void Tree::renderTree() const
 	// set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
 	//    instance variables
 	// ...
-	cylinders[0]->render();
-	cylinders[1]->render();
-	cylinders[2]->render();
+	cylinder->render();
 
 	// glBindVertexArray(vao[0]);
 	// // draw trunk first because treetop overwrites it

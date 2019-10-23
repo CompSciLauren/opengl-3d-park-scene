@@ -1,12 +1,13 @@
 // main.c++: Starter for EECS 672 Projects 2-4
 
 #include "ExtendedController.h"
-#include "Cylinder.h"
 #include "Tree.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
 	c.addModel(new Tree(sIF, 0, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.05, 1.4, 0.05));
+	c.addModel(new Tree(sIF, 0.10, 1.4, 0.05));
 }
 
 void set3DViewingInformation(double overallBB[])
