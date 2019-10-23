@@ -16,10 +16,10 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
 	// bench position along Y axis
-	double seatPosAlongY[] = {0.22, 0.24};
+	double seatPosAlongY[] = {0.075, 0.075};
 
 	// bench position along Z axis
-	double seatPosAlongZ[] = {1.45, 1.50};
+	double seatPosAlongZ[] = {1.47, 1.50};
 
 	// bench color
 	double benchColor[] = {128, 64, 0};
