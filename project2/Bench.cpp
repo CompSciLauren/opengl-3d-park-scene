@@ -2,7 +2,8 @@
 
 #include "Bench.h"
 
-Bench::Bench(ShaderIF* sIF, double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
+Bench::Bench(ShaderIF* sIF, double xMinPos, double xMaxPos,
+double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
 double radius, double blX, double blockPosAlongY, double blZ, double benchSize[],
 double blockColor[], double legsColor[]) : shaderIF(sIF)
 {
@@ -15,10 +16,10 @@ double blockColor[], double legsColor[]) : shaderIF(sIF)
 	zmin = frontRightLegPos[1] - radius;
 	zmax = frontRightLegPos[1] + radius;
 
-	legs[0] = new Cylinder(sIF, frontRightLegPos[0], frontRightLegPos[1], radius, legsColor);
-	legs[1] = new Cylinder(sIF, frontLeftLegPos[0], frontLeftLegPos[1], radius, legsColor);
-	legs[2] = new Cylinder(sIF, backRightLegPos[0], backRightLegPos[1], radius, legsColor);
-	legs[3] = new Cylinder(sIF, backLeftLegPos[0], backLeftLegPos[1], radius, legsColor);
+	legs[0] = new Cylinder(sIF, xMinPos, xMaxPos, frontRightLegPos[0], frontRightLegPos[1], radius, legsColor);
+	legs[1] = new Cylinder(sIF, xMinPos, xMaxPos, frontLeftLegPos[0], frontLeftLegPos[1], radius, legsColor);
+	legs[2] = new Cylinder(sIF, xMinPos, xMaxPos, backRightLegPos[0], backRightLegPos[1], radius, legsColor);
+	legs[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftLegPos[0], backLeftLegPos[1], radius, legsColor);
 	block = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
 }
 

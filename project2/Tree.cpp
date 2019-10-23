@@ -2,20 +2,16 @@
 
 #include "Tree.h"
 
-Tree::Tree(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
+Tree::Tree(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
 double blX, double blockPosAlongY, double blZ, double leavesSize[],
 double blockColor[], double treeTrunkColor[]) : shaderIF(sIF)
 {
-	double x1 = 0.2;
-	double x2 = 0.25;
-	xmin = x1;
-	xmax = x2;
 	ymin = positionAlongY - radius;
 	ymax = positionAlongY + radius;
 	zmin = positionAlongZ - radius;
 	zmax = positionAlongZ + radius;
 
-	cylinder = new Cylinder(sIF, positionAlongY, positionAlongZ, radius, treeTrunkColor);
+	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, treeTrunkColor);
 	block = new Block(sIF, blX, blockPosAlongY, blZ, leavesSize, blockColor);
 }
 

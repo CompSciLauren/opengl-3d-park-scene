@@ -37,7 +37,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double backLeftLegPos[] = {0.227, 1.469}; // yPos, zPos
 
 	// add bench
-	c.addModel(new Bench(sIF,
+	c.addModel(new Bench(sIF, 0.2, 0.205,
 	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
 	0.035, 0.205,
 	0.22, 1.45, // position of seat
@@ -61,7 +61,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
 		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
 
-		c.addModel(new Tree(sIF,
+		c.addModel(new Tree(sIF, 0.2, 0.25,
 		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
 		0.05, 0.23,
 		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves

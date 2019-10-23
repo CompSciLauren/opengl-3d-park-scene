@@ -15,7 +15,7 @@
 class Cylinder : public ModelView
 {
 public:
-	Cylinder(ShaderIF* sIF, double positionAlongY, double positionAlongZ, double radius,
+	Cylinder(ShaderIF* sIF, double xminPos, double xmaxPos, double positionAlongY, double positionAlongZ, double radius,
 	double cylinderColor[]);
 	virtual ~Cylinder();
 
