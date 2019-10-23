@@ -165,7 +165,7 @@ int main(int argc, char* argv[])
 
 	createScene(c, sIF);
 
-	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glClearColor(0.529, 0.808, 0.922, 1.0);
 
 	double xyz[6];
 	c.getOverallMCBoundingBox(xyz);
