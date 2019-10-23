@@ -1,19 +1,19 @@
-// TEMPLATE_Subclass.c++
+// Tree.c++
 
-#include "TEMPLATE_Subclass.h"
+#include "Tree.h"
 
-TEMPLATE_Subclass::TEMPLATE_Subclass(ShaderIF* sIF) : shaderIF(sIF)
+Tree::Tree(ShaderIF* sIF) : shaderIF(sIF)
 {
 	// DON'T FORGET TO SET INSTANCE VARIABLES, PERHAPS USING
 	// SOME CONSTRUCTOR PARAMETERS
 }
 
-TEMPLATE_Subclass::~TEMPLATE_Subclass()
+Tree::~Tree()
 {
 }
 
 // xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
-void TEMPLATE_Subclass::getMCBoundingBox(double* xyzLimits) const
+void Tree::getMCBoundingBox(double* xyzLimits) const
 {
 	xyzLimits[0] = -1000.0; // xmin  Give real values!
 	xyzLimits[1] = 1000.0;  // xmax         |
@@ -23,7 +23,7 @@ void TEMPLATE_Subclass::getMCBoundingBox(double* xyzLimits) const
 	xyzLimits[5] = -2000.0; // zmax        \_/
 }
 
-void TEMPLATE_Subclass::render()
+void Tree::render()
 {
 	// 1. Save current and establish new current shader program
 	// ...
@@ -37,7 +37,7 @@ void TEMPLATE_Subclass::render()
 	// ...
 }
 
-void TEMPLATE_Subclass::renderXxx()
+void Tree::renderXxx()
 {
 	// 3. Set GLSL's "ka" and "kd" uniforms using this object's "ka" and "kd"
 	//    instance variables

@@ -1,17 +1,17 @@
-// TEMPLATE_Subclass.h
+// Tree.h
 
-#ifndef TEMPLATE_SUBCLASS_H
-#define TEMPLATE_SUBCLASS_H
+#ifndef TREE_H
+#define TREE_H
 
 #include "ModelView.h"
 #include "ShaderIF.h"
 
-class TEMPLATE_Subclass : public ModelView
+class Tree : public ModelView
 {
 public:
 	// As before: you will likely want to add parameters to the constructor
-	TEMPLATE_Subclass(ShaderIF* sIF);
-	virtual ~TEMPLATE_Subclass();
+	Tree(ShaderIF* sIF);
+	virtual ~Tree();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
 	void getMCBoundingBox(double* xyzLimitsF) const;
