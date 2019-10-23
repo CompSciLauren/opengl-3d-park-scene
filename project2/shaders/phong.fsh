@@ -21,17 +21,20 @@ uniform vec3 La = vec3(0.15, 0.15, 0.15);
 // output color from the lighting model:
 out vec4 fragmentColor;
 
+// implements simple Lambert shading (NOTE: We assume a single directional light source defined in EC (liHat))
 vec4 evaluateLightingModel()
 {
-	// implements simple Lambert shading (NOTE: We assume a single directional light source defined in EC (liHat))
-
 	vec3 liHat = vec3(0.0, 0.0, 1.0); // directional light in EC at eye (a flashlight)
 
-	// use liHat, the uniforms, and the incoming PVA values to compute
-	// the simplified Phong model we are using for project 2.
+	float rKaLa = ka[0] * La[0];
+	float gKaLa = ka[1] * La[1];
+	float bKaLa = ka[2] * La[2];
 
-	// for now:
-	return vec4(0.0, 0.0, 0.0, 1.0);
+	float r = rKaLa + kd[0];
+	float g = gKaLa + kd[1];
+	float b = bKaLa + kd[2];
+
+	return vec4(r, g, b, 1.0);
 }
 
 void main ()
