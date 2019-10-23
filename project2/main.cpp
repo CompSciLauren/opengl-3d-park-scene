@@ -13,6 +13,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
 	// bench
+	double seatPos[] = {0.22, 1.45};
 	double seatSize[] = {0.003, 0.009, 0.021};
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
@@ -36,8 +37,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	c.addModel(new Bench(sIF, 0.2, 0.205,
 	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
 	0.035, 0.205,
-	0.22, 1.45, // position of seat
-	seatSize, backRestSize,
+	seatPos, seatSize, backRestSize,
 	benchColor, legsColor));
 
 	// tree position along Y axis

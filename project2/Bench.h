@@ -13,7 +13,7 @@ class Bench : public ModelView
 public:
 	Bench(ShaderIF* sIF, double xMinPos, double xMaxPos,
 	double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
-	double radius, double blX, double blockPosAlongY, double blZ, double benchSize[], double backRestSize[],
+	double radius, double blX, double seatPos[], double seatSize[], double backRestSize[],
 	double blockColor[], double benchColor[]);
 	virtual ~Bench();
 
