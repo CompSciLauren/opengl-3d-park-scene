@@ -63,7 +63,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
 		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
 
-		c.addModel(new Tree(sIF, 0.2, 0.25,
+		c.addModel(new Tree(sIF, 0.2, 0.23,
 		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
 		0.05, 0.23,
 		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
