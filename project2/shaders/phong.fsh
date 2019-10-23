@@ -8,13 +8,13 @@ in PVA
 	vec3 ecUnitNormal;// "nHat" in our lighting model pictures
 } pvaIn;
 
-// For lighing model:
+// for lighing model:
 uniform mat4 ec_lds; // so projection type and hence vHat can be determined
 
-// Phong material properties (RGB reflectances);
+// phong material properties (RGB reflectances);
 uniform vec3 ka = vec3(0.8, 0.0, 0.0); // default: darkish red
 uniform vec3 kd = vec3(0.8, 0.0, 0.0); // default: darkish red
-// Lighting environment
+// lighting environment
 // RGB strength of assumed ambient light:
 uniform vec3 La = vec3(0.15, 0.15, 0.15);
 
@@ -23,19 +23,14 @@ out vec4 fragmentColor;
 
 vec4 evaluateLightingModel()
 {
-	// THIS IS JUST A PLACEHOLDER FOR A LIGHTING MODEL.
-	// It only currently implements simple Lambert shading.
-
-	// NOTE: We assume a single directional light source defined in EC (liHat).
-	//
-	// In project 3, several aspects of this will be generalized.
+	// implements simple Lambert shading (NOTE: We assume a single directional light source defined in EC (liHat))
 
 	vec3 liHat = vec3(0.0, 0.0, 1.0); // directional light in EC at eye (a flashlight)
 
-	// Use liHat, the uniforms, and the incoming PVA values to compute
+	// use liHat, the uniforms, and the incoming PVA values to compute
 	// the simplified Phong model we are using for project 2.
 
-	// For now:
+	// for now:
 	return vec4(0.0, 0.0, 0.0, 1.0);
 }
 
