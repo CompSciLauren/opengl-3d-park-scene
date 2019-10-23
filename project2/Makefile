@@ -15,7 +15,7 @@ MAKE = make
 LINK = g++ -fPIC -g
 LOCAL_UTIL_LIBRARIES = ../lib/libcryph.so ../lib/libfont.so ../lib/libglsl.so ../lib/libImageReader.so ../lib/libmvc.so
 
-OBJS = main.o ExtendedController.o Cylinder.o Tree.o
+OBJS = main.o ExtendedController.o Cylinder.o Tree.o Bench.o
 
 main: $(OBJS) $(LOCAL_UTIL_LIBRARIES)
 	$(LINK) -o main $(OBJS) $(LOCAL_UTIL_LIBRARIES) $(GL_LIBRARIES)
@@ -43,3 +43,5 @@ Cylinder.o: Cylinder.h Cylinder.cpp
 	$(CPP) $(C_FLAGS) Cylinder.cpp
 Tree.o: Tree.h Tree.cpp
 	$(CPP) $(C_FLAGS) Tree.cpp
+Bench.o: Bench.h Bench.cpp
+	$(CPP) $(C_FLAGS) Bench.cpp
