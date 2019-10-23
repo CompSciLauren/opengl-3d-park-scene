@@ -10,14 +10,19 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// grass color
 	double grassColor[] = {0, 92, 9};
 
+	// grass size
+	double grassSize[] = {0.001, 0.3, 0.3};
 	// add grass
-	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.001, 0.3, 0.3, grassColor));
+	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
 
 	// bench color
 	double benchColor[] = {128, 64, 0};
 
+	// bench size
+	double benchSize[] = {0.022, 0.022, 0.022};
+
 	// add bench
-	c.addModel(new Bench(sIF, 0.22, 1.45, 0.05, 0.23, 0.22 - 0.009, 1.45 - 0.01, 0.022, 0.022, 0.022, benchColor, benchColor));
+	c.addModel(new Bench(sIF, 0.22, 1.45, 0.05, 0.23, 0.22 - 0.009, 1.45 - 0.01, benchSize, benchColor, benchColor));
 
 	// tree position along Y axis
 	double treeTrunksPosAlongY[] = {0.01, 0.03, 0.26, 0.06, 0.20, 0.13};
@@ -30,6 +35,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double treeLeafColor[] = {77, 168, 59};
 
 	// add trees
+	double leavesSize[] = {0.022, 0.022, 0.022};
 	for (int i = 0; i < 6; i++)
 	{
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
@@ -39,7 +45,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
 		0.05, 0.23,
 		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
-		0.022, 0.022, 0.022,
+		leavesSize, // size of leaves
 		treeLeafColor, treeTrunkColor)); // colors
 	}
 }
