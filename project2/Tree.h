@@ -15,7 +15,7 @@
 class Tree : public ModelView
 {
 public:
-	Tree(ShaderIF* sIF, double x1, double x2, double yb, double zb, double r);
+	Tree(ShaderIF* sIF, double yb, double zb, double r);
 	virtual ~Tree();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}

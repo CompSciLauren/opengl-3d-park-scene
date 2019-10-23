@@ -7,8 +7,10 @@
 
 // This simple Tree class creates a Tree along the x-axis:
 // (x1, yb, zb) to (x2, yb, zb) with radius = r
-Tree::Tree(ShaderIF* sIF, double x1, double x2, double yb, double zb, double r) : shaderIF(sIF)
+Tree::Tree(ShaderIF* sIF, double yb, double zb, double r) : shaderIF(sIF)
 {
+	double x1 = 0.2;
+	double x2 = 0.25;
 	kd[0] = 0.25; kd[1] = 1.0; kd[2] = 0.5;
 	xmin = x1;
 	xmax = x2;
