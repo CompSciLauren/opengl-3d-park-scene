@@ -6,11 +6,11 @@
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
-	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.01, 0.3, 0.3));
+	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, 0.01, 0.3, 0.3, 79, 121, 66));
 
-	c.addModel(new Tree(sIF, 0, 1.4, 0.05, 0.23, -0.009, 1.39, 0.022, 0.022, 0.022));
-	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05, 0.23, 0.019, 1.39, 0.022, 0.022, 0.022));
-	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05, 0.23, 0.049, 1.39, 0.022, 0.022, 0.022));
+	c.addModel(new Tree(sIF, 0, 1.4, 0.05, 0.23, -0.009, 1.39, 0.022, 0.022, 0.022, 240, 0, 0));
+	c.addModel(new Tree(sIF, 0.03, 1.4, 0.05, 0.23, 0.019, 1.39, 0.022, 0.022, 0.022, 0, 240, 0));
+	c.addModel(new Tree(sIF, 0.06, 1.4, 0.05, 0.23, 0.049, 1.39, 0.022, 0.022, 0.022, 0, 0, 240));
 }
 
 void set3DViewingInformation(double overallBB[])

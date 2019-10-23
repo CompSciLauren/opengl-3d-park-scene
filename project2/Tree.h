@@ -13,7 +13,9 @@ class Tree : public ModelView
 public:
 	// Tree(ShaderIF* sIF, double xbIn, double ybIn, double rTreeTopIn, double rTrunkIn,
 	// double heightIn, int numTreeTopPointsIn=30, int numTrunkPointsIn=25);
-	Tree(ShaderIF* sIF, double x, double y, double z, double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3);
+	Tree(ShaderIF* sIF, double x, double y, double z,
+	double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3,
+	double r, double g, double b);
 	virtual ~Tree();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}

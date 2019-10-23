@@ -3,7 +3,8 @@
 #include "Tree.h"
 
 Tree::Tree(ShaderIF* sIF, double x, double y, double z,
-double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3) : shaderIF(sIF)
+double blX, double blY, double blZ, double blSize1, double blSize2, double blSize3,
+double r, double g, double b) : shaderIF(sIF)
 {
 	double x1 = 0.2, x2 = 0.25;
 	xmin = x1;
@@ -14,7 +15,7 @@ double blX, double blY, double blZ, double blSize1, double blSize2, double blSiz
 	zmax = y + z;
 
 	cylinder = new Cylinder(sIF, x, y, z);
-	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3);
+	block = new Block(sIF, blX, blY, blZ, blSize1, blSize2, blSize3, r, g, b);
 }
 
 Tree::~Tree()
