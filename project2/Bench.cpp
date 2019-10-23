@@ -4,7 +4,7 @@
 
 Bench::Bench(ShaderIF* sIF, double xMinPos, double xMaxPos,
 double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
-double radius, double blX, double blockPosAlongY, double blZ, double benchSize[],
+double radius, double blX, double blockPosAlongY, double blZ, double benchSize[], double backRestSize[],
 double blockColor[], double legsColor[]) : shaderIF(sIF)
 {
 	double x1 = 0.2;
@@ -20,7 +20,8 @@ double blockColor[], double legsColor[]) : shaderIF(sIF)
 	legs[1] = new Cylinder(sIF, xMinPos, xMaxPos, frontLeftLegPos[0], frontLeftLegPos[1], radius, legsColor);
 	legs[2] = new Cylinder(sIF, xMinPos, xMaxPos, backRightLegPos[0], backRightLegPos[1], radius, legsColor);
 	legs[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftLegPos[0], backLeftLegPos[1], radius, legsColor);
-	block = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
+	benchSeat = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
+	backRest = new Block(sIF, blX, blockPosAlongY, blZ, backRestSize, blockColor);
 }
 
 Bench::~Bench()
@@ -66,5 +67,6 @@ void Bench::renderBench() const
 	legs[1]->render();
 	legs[2]->render();
 	legs[3]->render();
-	block->render();
+	benchSeat->render();
+	backRest->render();
 }

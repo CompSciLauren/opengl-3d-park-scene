@@ -13,7 +13,8 @@ class Bench : public ModelView
 public:
 	Bench(ShaderIF* sIF, double xMinPos, double xMaxPos,
 	double frontRightLegPos[], double frontLeftLegPos[], double backRightLegPos[], double backLeftLegPos[],
-	double radius, double blX, double blockPosAlongY, double blZ, double benchSize[], double blockColor[], double benchColor[]);
+	double radius, double blX, double blockPosAlongY, double blZ, double benchSize[], double backRestSize[],
+	double blockColor[], double benchColor[]);
 	virtual ~Bench();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
@@ -30,7 +31,8 @@ private:
 	int numBenchTopPoints, numTrunkPoints;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Cylinder* legs[4];
-	Block* block;
+	Block* benchSeat;
+	Block* backRest;
 };
 
 #endif

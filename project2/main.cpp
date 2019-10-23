@@ -14,6 +14,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	// bench
 	double seatSize[] = {0.003, 0.009, 0.021};
+	double backRestSize[] = {0.009, 0.003, 0.021};
 
 	// lower-right leg position
 	double frontRightLegPos[] = {0.222, 1.452}; // yPos, zPos
@@ -36,7 +37,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	frontRightLegPos, frontLeftLegPos, backRightLegPos, backLeftLegPos,
 	0.035, 0.205,
 	0.22, 1.45, // position of seat
-	seatSize,
+	seatSize, backRestSize,
 	benchColor, legsColor));
 
 	// tree position along Y axis
