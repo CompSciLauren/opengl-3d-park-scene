@@ -28,7 +28,7 @@ private:
 	double xb, yb, rBenchTop, rTrunk, height;
 	int numBenchTopPoints, numTrunkPoints;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
-	Cylinder* cylinder;
+	Cylinder* legs[4];
 	Block* block;
 };
 

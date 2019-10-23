@@ -28,13 +28,13 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double frontRightLegPos[] = {0.222, 1.452}; // yPos, zPos
 
 	// lower-left leg position
-	double frontLeftLegPos[] = {0.222, 1.452}; // yPos, zPos
+	double frontLeftLegPos[] = {0.222, 1.469}; // yPos, zPos
 
 	// upper-right leg position
-	double backRightLegPos[] = {0.222, 1.452}; // yPos, zPos
+	double backRightLegPos[] = {0.227, 1.452}; // yPos, zPos
 
 	// upper-left leg position
-	double backLeftLegPos[] = {0.222, 1.452}; // yPos, zPos
+	double backLeftLegPos[] = {0.227, 1.469}; // yPos, zPos
 
 	// add bench
 	c.addModel(new Bench(sIF,

@@ -15,7 +15,10 @@ double blockColor[], double legsColor[]) : shaderIF(sIF)
 	zmin = frontRightLegPos[1] - radius;
 	zmax = frontRightLegPos[1] + radius;
 
-	cylinder = new Cylinder(sIF, frontRightLegPos[0], frontRightLegPos[1], radius, legsColor);
+	legs[0] = new Cylinder(sIF, frontRightLegPos[0], frontRightLegPos[1], radius, legsColor);
+	legs[1] = new Cylinder(sIF, frontLeftLegPos[0], frontLeftLegPos[1], radius, legsColor);
+	legs[2] = new Cylinder(sIF, backRightLegPos[0], backRightLegPos[1], radius, legsColor);
+	legs[3] = new Cylinder(sIF, backLeftLegPos[0], backLeftLegPos[1], radius, legsColor);
 	block = new Block(sIF, blX, blockPosAlongY, blZ, benchSize, blockColor);
 }
 
@@ -58,6 +61,9 @@ void Bench::render()
 
 void Bench::renderBench() const
 {
-	cylinder->render();
+	legs[0]->render();
+	legs[1]->render();
+	legs[2]->render();
+	legs[3]->render();
 	block->render();
 }
