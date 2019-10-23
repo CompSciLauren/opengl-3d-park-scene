@@ -4,6 +4,7 @@
 #include "Bench.h"
 #include "Tree.h"
 #include "Block.h"
+#include "Bridge.h"
 
 void createScene(ExtendedController& c, ShaderIF* sIF)
 {	
@@ -70,6 +71,17 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		leavesSize, // size of leaves
 		treeLeafColor, treeTrunkColor)); // colors
 	}
+
+	// add bridge
+	double cornerPostSize[] = {0.022, 0.022, 0.022};
+	double bridgeBaseColor[] = {128, 64, 0};
+	double cornerPostColor[] = {101, 67, 33};
+	c.addModel(new Bridge(sIF, 0.2, 0.22,
+	0.09, 1.56,
+	0.05, 0.23,
+	0.09 - 0.009, 1.56 - 0.01,
+	cornerPostSize,
+	cornerPostColor, bridgeBaseColor));
 }
 
 void set3DViewingInformation(double overallBB[])
