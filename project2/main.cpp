@@ -34,13 +34,8 @@ void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
 	}
 }
 
-void createScene(ExtendedController& c, ShaderIF* sIF)
-{	
-	// grass
-	double grassColor[] = {0, 92, 9};
-	double grassSize[] = {0.001, 0.3, 0.3};
-	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
-
+void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
+{
 	// bench
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
@@ -74,7 +69,16 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 		seatPos, seatSize, backRestSize,
 		benchColor, legsColor));
 	}
+}
 
+void createScene(ExtendedController& c, ShaderIF* sIF)
+{	
+	// grass
+	double grassColor[] = {0, 92, 9};
+	double grassSize[] = {0.001, 0.3, 0.3};
+	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
+
+	createBenchesForScene(c, sIF);
 	createTreesForScene(c, sIF);
 
 	// add bridge
