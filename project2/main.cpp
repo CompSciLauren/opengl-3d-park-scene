@@ -18,16 +18,16 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
 	// lower-right leg position
-	double frontRightLegPos[] = {0.222, 1.452}; // yPos, zPos
+	double frontRightLegPos[] = {seatPos[0] + 0.002, seatPos[1] + 0.002}; // yPos, zPos
 
 	// lower-left leg position
-	double frontLeftLegPos[] = {0.222, 1.469}; // yPos, zPos
+	double frontLeftLegPos[] = {seatPos[0] + 0.002, seatPos[1] + 0.019}; // yPos, zPos
 
 	// upper-right leg position
-	double backRightLegPos[] = {0.227, 1.452}; // yPos, zPos
+	double backRightLegPos[] = {seatPos[0] + 0.007, seatPos[1] + 0.002}; // yPos, zPos
 
 	// upper-left leg position
-	double backLeftLegPos[] = {0.227, 1.469}; // yPos, zPos
+	double backLeftLegPos[] = {seatPos[0] + 0.007, seatPos[1] + 0.019}; // yPos, zPos
 
 	// legs color
 	double legsColor[] = {101, 67, 33};
