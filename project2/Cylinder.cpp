@@ -7,20 +7,22 @@
 
 // This simple Cylinder class creates a cylinder along the x-axis:
 // (x1, yb, zb) to (x2, yb, zb) with radius = r
-Cylinder::Cylinder(ShaderIF* sIF, double yb, double zb, double r, double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF) 
+Cylinder::Cylinder(ShaderIF* sIF, double yb, double zb, double radius,
+double rTrunk, double gTrunk, double bTrunk) : shaderIF(sIF) 
 {
-	double x1 = 0.2, x2 = 0.25;
+	double x1 = 0.2;
+	double x2 = 0.25;
 	xmin = x1;
 	xmax = x2;
-	ymin = yb - r;
-	ymax = yb + r;
-	zmin = zb - r;
-	zmax = zb + r;
+	ymin = yb - radius;
+	ymax = yb + radius;
+	zmin = zb - radius;
+	zmax = zb + radius;
 
 	kd[0] = rTrunk/255;
 	kd[1] = gTrunk/255;
 	kd[2] = bTrunk/255;
-	defineCylinder(x1, x2, yb, zb, r);
+	defineCylinder(x1, x2, yb, zb, radius);
 }
 
 Cylinder::~Cylinder()
@@ -31,7 +33,7 @@ Cylinder::~Cylinder()
 
 const int N_POINTS_AROUND_SLICE = 18; // number points around a cross-section
 
-void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double r)
+void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double radius)
 {
 	typedef float vec3[3];
 	int nPoints = 2 * (N_POINTS_AROUND_SLICE + 1); // "+1" because last point = first
@@ -45,19 +47,19 @@ void Cylinder::defineCylinder(double x1, double x2, double yb, double zb, double
 	{
 		// create two points and their corresponding (and common) normal vectors
 		int j = 2 * i;
-		double ny = r * cos(theta);
-		double nz = r * sin(theta);
+		double ny = radius * cos(theta);
+		double nz = radius * sin(theta);
 		coords[j][0] = x1;
-		coords[j][1] = yb + r * ny;
-		coords[j][2] = zb + r * nz;
+		coords[j][1] = yb + radius * ny;
+		coords[j][2] = zb + radius * nz;
 
 		normals[j][0] = 0;
 		normals[j][1] = ny;
 		normals[j][2] = nz;
 		
 		coords[j+1][0] = x2;
-		coords[j+1][1] = yb + r * ny;
-		coords[j+1][2] = zb + r * nz;
+		coords[j+1][1] = yb + radius * ny;
+		coords[j+1][2] = zb + radius * nz;
 		
 		normals[j+1][0] = 0;
 		normals[j+1][1] = ny;
