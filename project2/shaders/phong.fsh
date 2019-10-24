@@ -27,37 +27,24 @@ vec4 evaluateLightingModel()
 	vec3 vHat;
 	if (ec_lds[3][3] == 0)
 	{
-		vHat = normalize(-ecPosition);
+		vHat = normalize(-pvaIn.ecPosition);
 	}
 	else
 	{
-		vHat = normalize(-ec_lds[0][2]/ec_lds[0][0], -ec_lds[1][2]/ec_lds[1][1], 1);
+		vHat = normalize(vec3(-ec_lds[0][2]/ec_lds[0][0], -ec_lds[1][2]/ec_lds[1][1], 1));
 	}
-
 
 	vec3 liHat = vec3(0.0, 0.0, 1.0); // directional light in EC at eye (a flashlight)
+	vec3 nHat = pvaIn.ecUnitNormal;
 
-	float rKaLa = ka[0] * La[0];
-	float gKaLa = ka[1] * La[1];
-	float bKaLa = ka[2] * La[2];
-
-	float iHat[] = {0, 0, 1};
-	vec3 normal = vec3(1, 0, -1);
-
-	if (dot(normal, vHat) < 0)
+	if (dot(nHat, vHat) < 0)
 	{
-		normal = -normal;
+		nHat = -nHat;
 	}
 
-	float rKdINorm = kd[0] * dot(iHat, normal);
-	float gKdINorm = kd[1] * dot(iHat, normal);
-	float bKdINorm = kd[2] * dot(iHat, normal);
+	vec3 rgb = (ka * La) + kd * dot(liHat, nHat);
 
-	float r = rKaLa + rKdINorm;
-	float g = gKaLa + gKdINorm;
-	float b = bKaLa + bKdINorm;
-
-	return vec4(r, g, b, 1.0);
+	return vec4(rgb, 1.0);
 }
 
 void main ()
