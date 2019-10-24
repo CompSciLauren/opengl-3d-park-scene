@@ -19,7 +19,7 @@ double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 	posts[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftPostPos[0], backLeftPostPos[1], radius, cornerPostColor);
 	bridgeBase = new Block(sIF, blX, basePos, bridgeBaseSize, bridgeBaseColor);
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, frontRightPostPos[0], frontRightPostPos[1], radius, bridgeBaseColor);
-	wallPiece = new Block(sIF, blX, basePos, wallPieceSize, bridgeBaseColor);
+	wallPiece = new Block(sIF, blX, basePos, wallPieceSize, cornerPostColor);
 }
 
 Bridge::~Bridge()
