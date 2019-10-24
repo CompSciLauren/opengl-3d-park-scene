@@ -42,10 +42,10 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 	double backRestSize[] = {0.009, 0.003, 0.021};
 
 	// bench position along Y axis
-	double seatPosAlongY[] = {0.075, 0.075};
+	double seatPosAlongY[] = {0.025, 0.025};
 
 	// bench position along Z axis
-	double seatPosAlongZ[] = {1.47, 1.50};
+	double seatPosAlongZ[] = {1.45, 1.48};
 
 	// bench color
 	double benchColor[] = {128, 64, 0};
@@ -82,8 +82,8 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 	double cornerPostColor[] = {101, 67, 33};
 
 	// base positions
-	double basePosAlongY[] = {0.2, 0.1};
-	double basePosAlongZ[] = {1.46, 1.46};
+	double basePosAlongY[] = {0.2, 0.13};
+	double basePosAlongZ[] = {1.52, 1.4};
 
 	for (int i = 0; i < 2; i++)
 	{
