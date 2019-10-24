@@ -1,5 +1,3 @@
-// Cylinder.c++
-
 #include <iostream>
 #include <math.h>
 

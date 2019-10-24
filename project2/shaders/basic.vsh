@@ -1,7 +1,5 @@
 #version 410 core
 
-// basic.vsh
-
 // Naming convention for variables holding coordinates:
 // mc - model coordinates
 // ec - eye coordinates

@@ -1,5 +1,3 @@
-// Tree.c++
-
 #include "Tree.h"
 
 Tree::Tree(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,

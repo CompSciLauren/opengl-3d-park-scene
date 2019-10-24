@@ -1,6 +1,6 @@
 #version 410 core
 
-// phong.fsh - a fragment shader that implements a Phong Lighting model.
+// Phong Lighting model
 
 in PVA
 {
@@ -8,7 +8,7 @@ in PVA
 	vec3 ecUnitNormal;// "nHat" in our lighting model pictures
 } pvaIn;
 
-// for lighing model:
+// for lighting model:
 uniform mat4 ec_lds; // so projection type and hence vHat can be determined
 
 // phong material properties (RGB reflectances);

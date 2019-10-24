@@ -1,5 +1,3 @@
-// ExtendedController.c++
-
 #include "ExtendedController.h"
 #include "ModelView.h"
 

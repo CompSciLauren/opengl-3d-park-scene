@@ -1,5 +1,3 @@
-// main.c++: Starter for EECS 672 Projects 2-4
-
 #include "ExtendedController.h"
 #include "Bench.h"
 #include "Tree.h"

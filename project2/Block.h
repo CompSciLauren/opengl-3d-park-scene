@@ -1,5 +1,3 @@
-// Block.h
-
 #ifndef BLOCK_H
 #define BLOCK_H
 

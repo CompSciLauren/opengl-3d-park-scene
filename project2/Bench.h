@@ -1,5 +1,3 @@
-// Bench.h
-
 #ifndef Bench_H
 #define Bench_H
 

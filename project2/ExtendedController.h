@@ -1,5 +1,3 @@
-// ExtendedController.h
-
 #ifndef EXTENDEDCONTROLLER_H
 #define EXTENDEDCONTROLLER_H
 

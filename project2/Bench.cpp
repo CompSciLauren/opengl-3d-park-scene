@@ -1,5 +1,3 @@
-// Bench.c++
-
 #include "Bench.h"
 
 Bench::Bench(ShaderIF* sIF, double xMinPos, double xMaxPos,

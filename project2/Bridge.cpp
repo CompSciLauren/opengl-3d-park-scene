@@ -1,5 +1,3 @@
-// Bridge.c++
-
 #include "Bridge.h"
 
 Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,

@@ -1,5 +1,3 @@
-// Block.c++
-
 #include <iostream>
 #include <math.h>
 
