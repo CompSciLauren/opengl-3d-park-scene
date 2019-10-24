@@ -5,7 +5,7 @@
 Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,
 double frontRightPostPos[], double frontLeftPostPos[], double backRightPostPos[], double backLeftPostPos[],
 double radius,
-double blX, double basePos[], double bridgeBaseSize[],
+double blX, double basePos[], double bridgeBaseSize[], double wallPieceSize[],
 double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 {
 	ymin = frontRightPostPos[0] - radius;
@@ -19,6 +19,7 @@ double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 	posts[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftPostPos[0], backLeftPostPos[1], radius, cornerPostColor);
 	bridgeBase = new Block(sIF, blX, basePos, bridgeBaseSize, bridgeBaseColor);
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, frontRightPostPos[0], frontRightPostPos[1], radius, bridgeBaseColor);
+	wallPiece = new Block(sIF, blX, basePos, wallPieceSize, bridgeBaseColor);
 }
 
 Bridge::~Bridge()
@@ -66,4 +67,5 @@ void Bridge::renderBridge() const
 	posts[1]->render();
 	posts[2]->render();
 	posts[3]->render();
+	wallPiece->render();
 }

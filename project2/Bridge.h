@@ -14,7 +14,7 @@ public:
 	Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,
 	double frontRightPostPos[], double frontLeftPostPos[], double backRightPostPos[], double backLeftPostPos[],
 	double radius,
-	double blX, double basePos[], double bridgeBaseSize[],
+	double blX, double basePos[], double bridgeBaseSize[], double wallPieceSize[],
 	double cornerPostColor[], double bridgeBaseColor[]);
 	virtual ~Bridge();
 
@@ -32,6 +32,7 @@ private:
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Cylinder* cylinder;
 	Block* bridgeBase;
+	Block* wallPiece;
 	Cylinder* posts[4];
 };
 
