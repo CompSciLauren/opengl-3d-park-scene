@@ -25,10 +25,12 @@ void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
 		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
 
+		double blockPos[] = {treeLeavesPosAlongY, treeLeavesPosAlongZ};
+
 		c.addModel(new Tree(sIF, 0.2, 0.23,
 		treeTrunksPosAlongY[i], treeTrunksPosAlongZ[i], // position of trunks
 		0.05, 0.23,
-		treeLeavesPosAlongY, treeLeavesPosAlongZ, // position of leaves
+		blockPos, // position of leaves
 		leavesSize, // size of leaves
 		treeLeafColor, treeTrunkColor)); // colors
 	}
@@ -55,7 +57,7 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 	double seatSize[] = {0.003, 0.009, 0.021};
 	for (int i = 0; i < 2; i++)
 	{
-		// bench seat position (X and Y combined)
+		// bench seat position (Y and Z combined)
 		double seatPos[i] = {seatPosAlongY[i], seatPosAlongZ[i]};
 
 		double frontRightLegPos[] = {seatPosAlongY[i] + 0.002, seatPosAlongZ[i] + 0.002}; // yPos, zPos
@@ -88,10 +90,13 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 
 	for (int i = 0; i < 2; i++)
 	{
+		// bridge base position (Y and Z combined)
+		double basePos[i] = {basePosAlongY[i], basePosAlongZ[i]};
+
 		c.addModel(new Bridge(sIF, 0.2, 0.205,
 		postPosAlongY[i], postPosAlongZ[i],
 		0.05, 0.2,
-		basePosAlongY[i], basePosAlongZ[i],
+		basePos,
 		baseSize,
 		cornerPostColor, bridgeBaseColor));
 	}
@@ -102,12 +107,14 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// grass
 	double grassColor[] = {0, 92, 9};
 	double grassSize[] = {0.001, 0.3, 0.3};
-	c.addModel(new Block(sIF, 0.2, -0.009, 1.29, grassSize, grassColor));
+	double grassPos[] = {-0.009, 1.29};
+	c.addModel(new Block(sIF, 0.2, grassPos, grassSize, grassColor));
 
 	// dirt
 	double dirtColor[] = {101, 67, 33};
 	double dirtSize[] = {0.01, 0.3, 0.3};
-	c.addModel(new Block(sIF, 0.19, -0.009, 1.29, dirtSize, dirtColor));
+	double dirtPos[] = {-0.009, 1.29};
+	c.addModel(new Block(sIF, 0.19, dirtPos, dirtSize, dirtColor));
 
 	// add benches, trees, and bridges
 	createBenchesForScene(c, sIF);

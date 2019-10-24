@@ -3,7 +3,7 @@
 #include "Bridge.h"
 
 Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-double blX, double blockPosAlongY, double blZ, double bridgeBaseSize[],
+double blX, double basePos[], double bridgeBaseSize[],
 double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 {
 	ymin = positionAlongY - radius;
@@ -12,7 +12,7 @@ double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, bridgeBaseColor);
-	bridgeBase = new Block(sIF, blX, blockPosAlongY, blZ, bridgeBaseSize, bridgeBaseColor);
+	bridgeBase = new Block(sIF, blX, basePos, bridgeBaseSize, bridgeBaseColor);
 }
 
 Bridge::~Bridge()

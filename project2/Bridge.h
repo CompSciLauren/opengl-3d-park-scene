@@ -12,7 +12,7 @@ class Bridge : public ModelView
 {
 public:
 	Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-	double blX, double blockPosAlongY, double blZ, double bridgeBaseSize[],
+	double blX, double basePos[], double bridgeBaseSize[],
 	double cornerPostColor[], double bridgeBaseColor[]);
 	virtual ~Bridge();
 

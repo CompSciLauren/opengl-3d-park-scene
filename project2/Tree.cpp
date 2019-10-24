@@ -3,8 +3,7 @@
 #include "Tree.h"
 
 Tree::Tree(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-double blX, double blockPosAlongY, double blZ, double leavesSize[],
-double blockColor[], double treeTrunkColor[]) : shaderIF(sIF)
+double blX, double blockPos[], double leavesSize[], double blockColor[], double treeTrunkColor[]) : shaderIF(sIF)
 {
 	ymin = positionAlongY - radius;
 	ymax = positionAlongY + radius;
@@ -12,7 +11,7 @@ double blockColor[], double treeTrunkColor[]) : shaderIF(sIF)
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, treeTrunkColor);
-	block = new Block(sIF, blX, blockPosAlongY, blZ, leavesSize, blockColor);
+	block = new Block(sIF, blX, blockPos, leavesSize, blockColor);
 }
 
 Tree::~Tree()
