@@ -2,17 +2,23 @@
 
 #include "Bridge.h"
 
-Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
+Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,
+double frontRightPostPos[], double frontLeftPostPos[], double backRightPostPos[], double backLeftPostPos[],
+double radius,
 double blX, double basePos[], double bridgeBaseSize[],
 double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 {
-	ymin = positionAlongY - radius;
-	ymax = positionAlongY + radius;
-	zmin = positionAlongZ - radius;
-	zmax = positionAlongZ + radius;
+	ymin = frontRightPostPos[0] - radius;
+	ymax = frontRightPostPos[0] + radius;
+	zmin = frontRightPostPos[1] - radius;
+	zmax = frontRightPostPos[1] + radius;
 
-	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, bridgeBaseColor);
+	posts[0] = new Cylinder(sIF, xMinPos, xMaxPos, frontRightPostPos[0], frontRightPostPos[1], radius, cornerPostColor);
+	posts[1] = new Cylinder(sIF, xMinPos, xMaxPos, frontLeftPostPos[0], frontLeftPostPos[1], radius, cornerPostColor);
+	posts[2] = new Cylinder(sIF, xMinPos, xMaxPos, backRightPostPos[0], backRightPostPos[1], radius, cornerPostColor);
+	posts[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftPostPos[0], backLeftPostPos[1], radius, cornerPostColor);
 	bridgeBase = new Block(sIF, blX, basePos, bridgeBaseSize, bridgeBaseColor);
+	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, frontRightPostPos[0], frontRightPostPos[1], radius, bridgeBaseColor);
 }
 
 Bridge::~Bridge()
@@ -56,4 +62,8 @@ void Bridge::renderBridge() const
 {
 	cylinder->render();
 	bridgeBase->render();
+	posts[0]->render();
+	posts[1]->render();
+	posts[2]->render();
+	posts[3]->render();
 }

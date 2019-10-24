@@ -84,17 +84,18 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 	double basePosAlongY[] = {0.2, 0.1};
 	double basePosAlongZ[] = {1.46, 1.46};
 
-	// post positions
-	double postPosAlongY[] = {0.2 - 0.009, 0.1 - 0.009};
-	double postPosAlongZ[] = {1.46 - 0.01, 1.46 - 0.01};
-
 	for (int i = 0; i < 2; i++)
 	{
 		// bridge base position (Y and Z combined)
 		double basePos[i] = {basePosAlongY[i], basePosAlongZ[i]};
 
-		c.addModel(new Bridge(sIF, 0.2, 0.205,
-		postPosAlongY[i], postPosAlongZ[i],
+		double frontRightPostPos[] = {basePosAlongY[i] + 0.002, basePosAlongZ[i] + 0.002}; // yPos, zPos
+		double frontLeftPostPos[] = {basePosAlongY[i] + 0.002, basePosAlongZ[i] + 0.019}; // yPos, zPos
+		double backRightPostPos[] = {basePosAlongY[i] + 0.05, basePosAlongZ[i] + 0.002}; // yPos, zPos
+		double backLeftPostPos[] = {basePosAlongY[i] + 0.05, basePosAlongZ[i] + 0.019}; // yPos, zPos
+
+		c.addModel(new Bridge(sIF, 0.2, 0.215,
+		frontRightPostPos, frontLeftPostPos, backRightPostPos, backLeftPostPos,
 		0.05, 0.2,
 		basePos,
 		baseSize,
