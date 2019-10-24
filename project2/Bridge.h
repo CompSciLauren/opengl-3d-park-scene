@@ -30,7 +30,6 @@ private:
 	float ka[3], kd[3];
 	double xb, yb, rBridgeTop, rTrunk, height;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
-	Cylinder* cylinder;
 	Block* bridgeBase;
 	Block* wallPiece;
 	Cylinder* posts[4];
