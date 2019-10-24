@@ -119,9 +119,9 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	// river
 	double riverColor[] = {28,163,236};
-	double riverSize[] = {0.012, 0.02, 0.12};
-	double riverPos[] = {0.22, 1.43};
-	c.addModel(new Block(sIF, 0.19, riverPos, riverSize, riverColor));
+	double riverSize[] = {0.007, 0.02, 0.12};
+	double riverPos[] = {0.22, 1.469};
+	c.addModel(new Block(sIF, 0.195, riverPos, riverSize, riverColor));
 
 	// add benches, trees, and bridges
 	createBenchesForScene(c, sIF);
