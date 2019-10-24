@@ -31,7 +31,7 @@ private:
 	double xb, yb, rBridgeTop, rTrunk, height;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Block* bridgeBase;
-	Block* wallPiece;
+	Block* wallPieces[2];
 	Cylinder* posts[4];
 };
 
