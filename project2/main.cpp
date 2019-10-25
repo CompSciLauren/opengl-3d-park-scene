@@ -80,8 +80,8 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 	double wallPieceSize[] = {0.009, 0.05, 0.005};
 	double baseSize[] = {0.003, 0.05, 0.023};
 	double cornerPostSize[] = {0.022, 0.022, 0.022};
-	double bridgeBaseColor[] = {128, 64, 0};
-	double cornerPostColor[] = {101, 67, 33};
+	double bridgeBaseColor[] = {153, 0, 0};
+	double cornerPostColor[] = {102, 0, 0};
 
 	// base positions
 	double basePosAlongY[] = {0.2, 0.13};
