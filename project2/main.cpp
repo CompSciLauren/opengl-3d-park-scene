@@ -50,10 +50,10 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 	double seatPosAlongZ[] = {1.45, 1.48};
 
 	// bench color
-	double benchColor[] = {128, 64, 0};
+	double benchColor[] = {0, 204, 204};
 
 	// legs color
-	double legsColor[] = {101, 67, 33};
+	double legsColor[] = {64, 64, 64};
 
 	// add benches
 	double seatSize[] = {0.003, 0.009, 0.021};
