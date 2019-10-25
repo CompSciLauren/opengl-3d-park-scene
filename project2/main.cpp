@@ -114,7 +114,7 @@ void createBenchesForScene(ExtendedController& c, ShaderIF* sIF)
 void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 {
 	double wallPieceSize[] = {0.009, 0.05, 0.005};
-	double baseSize[] = {0.003, 0.05, 0.023};
+	double baseSize[] = {0.003, 0.016, 0.023};
 	double cornerPostSize[] = {0.022, 0.022, 0.022};
 	double bridgeBaseColor[] = {153, 0, 0};
 	double cornerPostColor[] = {102, 0, 0};
@@ -126,7 +126,9 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 	for (int i = 0; i < 2; i++)
 	{
 		// bridge base position (Y and Z combined)
-		double basePos[i] = {basePosAlongY[i], basePosAlongZ[i]};
+		double basePos1[i] = {basePosAlongY[i], basePosAlongZ[i]};
+		double basePos2[i] = {basePosAlongY[i] + 0.017, basePosAlongZ[i]};
+		double basePos3[i] = {basePosAlongY[i] + 0.034, basePosAlongZ[i]};
 
 		double frontRightPostPos[] = {basePosAlongY[i] + 0.00205, basePosAlongZ[i] + 0.002}; // yPos, zPos
 		double frontLeftPostPos[] = {basePosAlongY[i] + 0.00205, basePosAlongZ[i] + 0.0215}; // yPos, zPos
@@ -136,7 +138,7 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 		c.addModel(new Bridge(sIF, 0.2, 0.2112,
 		frontRightPostPos, frontLeftPostPos, backRightPostPos, backLeftPostPos,
 		0.05, 0.2,
-		basePos, baseSize, wallPieceSize,
+		basePos1, basePos2, basePos3, baseSize, wallPieceSize,
 		cornerPostColor, bridgeBaseColor));
 	}
 }

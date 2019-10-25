@@ -12,7 +12,7 @@ public:
 	Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,
 	double frontRightPostPos[], double frontLeftPostPos[], double backRightPostPos[], double backLeftPostPos[],
 	double radius,
-	double blX, double basePos[], double bridgeBaseSize[], double wallPieceSize[],
+	double blX, double basePos1[], double basePos2[], double basePos3[], double bridgeBaseSize[], double wallPieceSize[],
 	double cornerPostColor[], double bridgeBaseColor[]);
 	virtual ~Bridge();
 
@@ -26,7 +26,7 @@ private:
 	GLuint vbo[1]; // stores both cylinder and block points
 	float ka[3], kd[3];
 	double xmin, xmax, ymin, ymax, zmin, zmax;
-	Block* bridgeBase;
+	Block* bridgeBase[3];
 	Block* wallPieces[2];
 	Cylinder* posts[4];
 };

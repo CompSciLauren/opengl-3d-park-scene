@@ -3,7 +3,7 @@
 Bridge::Bridge(ShaderIF* sIF, double xMinPos, double xMaxPos,
 double frontRightPostPos[], double frontLeftPostPos[], double backRightPostPos[], double backLeftPostPos[],
 double radius,
-double blX, double basePos[], double bridgeBaseSize[], double wallPieceSize[],
+double blX, double basePos1[], double basePos2[], double basePos3[], double bridgeBaseSize[], double wallPieceSize[],
 double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 {
 	ymin = frontRightPostPos[0] - radius;
@@ -11,14 +11,16 @@ double cornerPostColor[], double bridgeBaseColor[]) : shaderIF(sIF)
 	zmin = frontRightPostPos[1] - radius;
 	zmax = frontRightPostPos[1] + radius;
 
-	double secondWallPiecePos[] = {basePos[0], basePos[1] + 0.019};
+	double secondWallPiecePos[] = {basePos1[0], basePos1[1] + 0.019};
 
 	posts[0] = new Cylinder(sIF, xMinPos, xMaxPos, frontRightPostPos[0], frontRightPostPos[1], radius, cornerPostColor);
 	posts[1] = new Cylinder(sIF, xMinPos, xMaxPos, frontLeftPostPos[0], frontLeftPostPos[1], radius, cornerPostColor);
 	posts[2] = new Cylinder(sIF, xMinPos, xMaxPos, backRightPostPos[0], backRightPostPos[1], radius, cornerPostColor);
 	posts[3] = new Cylinder(sIF, xMinPos, xMaxPos, backLeftPostPos[0], backLeftPostPos[1], radius, cornerPostColor);
-	bridgeBase = new Block(sIF, blX, basePos, bridgeBaseSize, bridgeBaseColor);
-	wallPieces[0] = new Block(sIF, blX, basePos, wallPieceSize, cornerPostColor);
+	bridgeBase[0] = new Block(sIF, blX, basePos1, bridgeBaseSize, bridgeBaseColor);
+	bridgeBase[1] = new Block(sIF, blX, basePos2, bridgeBaseSize, bridgeBaseColor);
+	bridgeBase[2] = new Block(sIF, blX, basePos3, bridgeBaseSize, bridgeBaseColor);
+	wallPieces[0] = new Block(sIF, blX, basePos1, wallPieceSize, cornerPostColor);
 	wallPieces[1] = new Block(sIF, blX, secondWallPiecePos, wallPieceSize, cornerPostColor);
 }
 
@@ -61,7 +63,9 @@ void Bridge::render()
 
 void Bridge::renderBridge() const
 {
-	bridgeBase->render();
+	bridgeBase[0]->render();
+	bridgeBase[1]->render();
+	bridgeBase[2]->render();
 	posts[0]->render();
 	posts[1]->render();
 	posts[2]->render();
