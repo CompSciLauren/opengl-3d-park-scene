@@ -1,7 +1,7 @@
 #include "Flower.h"
 
 Flower::Flower(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-double blX, double blockPos[], double leavesSize[], double blockColor[], double stemColor[]) : shaderIF(sIF)
+double flowerX, double flowerPos[], double flowerSize[], double flowerColor[], double stemColor[]) : shaderIF(sIF)
 {
 	ymin = positionAlongY - radius;
 	ymax = positionAlongY + radius;
@@ -9,7 +9,7 @@ double blX, double blockPos[], double leavesSize[], double blockColor[], double 
 	zmax = positionAlongZ + radius;
 
 	cylinder = new Cylinder(sIF, xMinPos, xMaxPos, positionAlongY, positionAlongZ, radius, stemColor);
-	block = new Block(sIF, blX, blockPos, leavesSize, blockColor);
+	block = new Block(sIF, flowerX, flowerPos, flowerSize, flowerColor);
 }
 
 Flower::~Flower()

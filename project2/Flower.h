@@ -10,8 +10,8 @@ class Flower : public ModelView
 {
 public:
 	Flower(ShaderIF* sIF, double xMinPos, double xMaxPos, double positionAlongY, double positionAlongZ, double radius,
-	double blX, double blockPos[], double leavesSize[],
-	double blockColor[], double stemColor[]);
+	double flowerX, double flowerPos[], double flowerSize[],
+	double flowerColor[], double stemColor[]);
 	virtual ~Flower();
 
 	// xyzLimits: {mcXmin, mcXmax, mcYmin, mcYmax, mcZmin, mcZmax}
