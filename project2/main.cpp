@@ -43,18 +43,18 @@ void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
 void createFlowersForScene(ExtendedController& c, ShaderIF* sIF)
 {
 	// flower position along Y axis
-	double stemPosAlongY[] = {0.017, 0.036, 0.24, 0.066, 0.19, 0.12};
+	double stemPosAlongY[] = {0.017, 0.036, 0.24, 0.066, 0.19, 0.12, 0.27, 0.21, 0.17, 0.11, 0.07, 0.03};
 
 	// flower position along Z axis
-	double stemPosAlongZ[] = {1.47, 1.51, 1.45, 1.34, 1.4, 1.48};
+	double stemPosAlongZ[] = {1.47, 1.51, 1.45, 1.34, 1.4, 1.48, 1.57, 1.33, 1.58, 1.54, 1.45, 1.3};
 
 	// flower colors
 	double stemColor[] = {95, 195, 75};
 
 	// add flowers
-	double flowersSizes[] = {0.002, 0.002, 0.002, 0.002, 0.002, 0.002};
+	double flowersSizes[] = {0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002, 0.002};
 
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 12; i++)
 	{
 		double rFlowerColor = 255;
 		double flowerColor[] = {rFlowerColor, 0, 0};
