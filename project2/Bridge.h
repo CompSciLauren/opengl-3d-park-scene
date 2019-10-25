@@ -24,9 +24,7 @@ private:
 	ShaderIF* shaderIF;
 	GLuint vao[1];
 	GLuint vbo[1]; // stores both cylinder and block points
-	int numTrunkTriStripPoints;
 	float ka[3], kd[3];
-	double xb, yb, rBridgeTop, rTrunk, height;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Block* bridgeBase;
 	Block* wallPieces[2];

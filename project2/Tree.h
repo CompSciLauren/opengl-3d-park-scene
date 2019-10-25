@@ -22,10 +22,7 @@ private:
 	ShaderIF* shaderIF;
 	GLuint vao[1];
 	GLuint vbo[1]; // stores both cylinder and block points
-	int numTrunkTriStripPoints;
 	float ka[3], kd[3];
-	double xb, yb, rTreeTop, rTrunk, height;
-	int numTreeTopPoints, numTrunkPoints;
 	double xmin, xmax, ymin, ymax, zmin, zmax;
 	Cylinder* cylinder;
 	Block* block;
