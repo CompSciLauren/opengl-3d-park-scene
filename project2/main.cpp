@@ -128,12 +128,12 @@ void createBridgesForScene(ExtendedController& c, ShaderIF* sIF)
 		// bridge base position (Y and Z combined)
 		double basePos[i] = {basePosAlongY[i], basePosAlongZ[i]};
 
-		double frontRightPostPos[] = {basePosAlongY[i] + 0.002, basePosAlongZ[i] + 0.002}; // yPos, zPos
-		double frontLeftPostPos[] = {basePosAlongY[i] + 0.002, basePosAlongZ[i] + 0.019}; // yPos, zPos
-		double backRightPostPos[] = {basePosAlongY[i] + 0.05, basePosAlongZ[i] + 0.002}; // yPos, zPos
-		double backLeftPostPos[] = {basePosAlongY[i] + 0.05, basePosAlongZ[i] + 0.019}; // yPos, zPos
+		double frontRightPostPos[] = {basePosAlongY[i] + 0.00205, basePosAlongZ[i] + 0.002}; // yPos, zPos
+		double frontLeftPostPos[] = {basePosAlongY[i] + 0.00205, basePosAlongZ[i] + 0.0215}; // yPos, zPos
+		double backRightPostPos[] = {basePosAlongY[i] + 0.0475, basePosAlongZ[i] + 0.002}; // yPos, zPos
+		double backLeftPostPos[] = {basePosAlongY[i] + 0.0475, basePosAlongZ[i] + 0.0215}; // yPos, zPos
 
-		c.addModel(new Bridge(sIF, 0.2, 0.215,
+		c.addModel(new Bridge(sIF, 0.2, 0.2112,
 		frontRightPostPos, frontLeftPostPos, backRightPostPos, backLeftPostPos,
 		0.05, 0.2,
 		basePos, baseSize, wallPieceSize,
