@@ -1,6 +1,7 @@
 #include "ExtendedController.h"
 #include "Bench.h"
 #include "Tree.h"
+#include "Flower.h"
 #include "Block.h"
 #include "Bridge.h"
 
@@ -36,6 +37,40 @@ void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
 		blockPos, // position of leaves
 		leavesSize, // size of leaves
 		treeLeafColor, treeTrunkColor)); // colors
+	}
+}
+
+void createFlowersForScene(ExtendedController& c, ShaderIF* sIF)
+{
+	// flower position along Y axis
+	double stemPosAlongY[] = {0.02, 0.04, 0.27, 0.07, 0.21, 0.14};
+
+	// flower position along Z axis
+	double stemPosAlongZ[] = {1.57, 1.41, 1.35, 1.54, 1.33, 1.38};
+
+	// flower colors
+	double stemColor[] = {95, 195, 75};
+
+	// add flowers
+	double flowersSizes[] = {0.002, 0.002, 0.002, 0.002, 0.002, 0.002};
+
+	for (int i = 0; i < 6; i++)
+	{
+		double rFlowerColor = 255;
+		double flowerColor[] = {rFlowerColor, 0, 0};
+		rFlowerColor -= 10;
+		double flowerSize[] = {flowersSizes[i], flowersSizes[i], flowersSizes[i]};
+		double flowerPosAlongY = stemPosAlongY[i] - 0.0011;
+		double flowerPosAlongZ = stemPosAlongZ[i] - 0;
+
+		double flowerPos[] = {flowerPosAlongY, flowerPosAlongZ};
+
+		c.addModel(new Flower(sIF, 0.2, 0.203,
+		stemPosAlongY[i], stemPosAlongZ[i], // position of stems
+		0.02, 0.203,
+		flowerPos, // position of flower
+		flowerSize, // size of flower
+		flowerColor, stemColor)); // colors
 	}
 }
 
@@ -139,6 +174,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// add benches, trees, and bridges
 	createBenchesForScene(c, sIF);
 	createTreesForScene(c, sIF);
+	createFlowersForScene(c, sIF);
 	createBridgesForScene(c, sIF);
 }
 
