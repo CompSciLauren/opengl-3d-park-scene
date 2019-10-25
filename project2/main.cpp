@@ -14,12 +14,16 @@ void createTreesForScene(ExtendedController& c, ShaderIF* sIF)
 
 	// tree colors
 	double treeTrunkColor[] = {165, 100, 6};
-	double treeLeafColor[] = {77, 168, 59};
+	double rLeafColor[] = {77, 95, 51, 37, 129, 9};
+	double gLeafColor[] = {168, 195, 151, 87, 202, 168};
+	double bLeafColor[] = {59, 75, 31, 27, 147, 114};
 
 	// add trees
 	double leavesSize[] = {0.022, 0.022, 0.022};
+
 	for (int i = 0; i < 6; i++)
 	{
+		double treeLeafColor[] = {rLeafColor[i], gLeafColor[i], bLeafColor[i]};
 		double treeLeavesPosAlongY = treeTrunksPosAlongY[i] - 0.009;
 		double treeLeavesPosAlongZ = treeTrunksPosAlongZ[i] - 0.01;
 
