@@ -160,7 +160,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 	// river
 	double riverColor[] = {28,163,236};
 	double riverSize[] = {0.007, 0.02, 0.12};
-	double riverPos[] = {0.22, 1.469};
+	double riverPos[] = {0.216, 1.469};
 	c.addModel(new Block(sIF, 0.195, riverPos, riverSize, riverColor));
 
 	double riverColor2[] = {28,163,236};
@@ -170,7 +170,7 @@ void createScene(ExtendedController& c, ShaderIF* sIF)
 
 	double riverColor3[] = {28,163,236};
 	double riverSize3[] = {0.007, 0.02, 0.199};
-	double riverPos3[] = {0.148, 1.29};
+	double riverPos3[] = {0.145, 1.29};
 	c.addModel(new Block(sIF, 0.195, riverPos3, riverSize3, riverColor3));
 
 	// add benches, trees, and bridges
