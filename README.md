@@ -1,6 +1,6 @@
-# OpenGL Feel the Snow Tribute
+# OpenGL 3D Park Scene
 
-> :snowflake: A tribute to Feel the Snow, a video game, using OpenGL.
+> :sunflower: A 3D scene depicting a park in OpenGL.
 
 ## How to Run Program in Terminal
 
